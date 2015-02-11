@@ -129,11 +129,15 @@
 
 ---
 
+### 数据存储 集群 VS 分片?
+
+---
+
 ### 搜索服务
 
 * Solr
 * Lucene
-* Sphinx
+* Sphinx (Coreseek)
 * Elastic Search 
 
 ---
