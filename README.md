@@ -1,4 +1,2 @@
-ttihgiesr.github.io
-===================
-
-100dos home page
+# 100dos.github.io
+Home Page Officially
