@@ -206,8 +206,6 @@ a {
 }
 
 .navbar-nav li a:hover {
-  background-color: #1d9d74;
-  color: #ffffff;
   text-decoration: none;
 }
 .navbar-nav li a:hover .fa {

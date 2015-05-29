@@ -26,19 +26,17 @@
 
     <div class="container page-header">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://blog.100dos.com"><i class="fa fa-file-word-o"></i> 博客</a></li>
-            <li><a href="http://weibo.com/100dos"><i class="fa fa-weibo"></i> 微博</a></li>
-            <li><a href="https://github.com/100dos"><i class="fa fa-github-alt"></i> github</a></li>
-            <li><a href="#"><i class="fa fa-weixin"></i> 微信</a></li>
+            <li><a href="http://blog.100dos.com" target="_blank"><i class="fa fa-file-word-o"></i> 博客</a></li>
+            <li><a href="http://weibo.com/100dos" target="_blank"><i class="fa fa-weibo"></i> 微博</a></li>
+            <li><a href="https://github.com/100dos" target="_blank"><i class="fa fa-github-alt"></i> github</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#wechat-modal"><i class="fa fa-weixin"></i> 微信</a></li>
         </ul>
         <h1>百作坊</h1>
         <img src="/assets/images/logo.png"/>
     </div>
 
     <div class="container">
-        <p>小打小闹也能出做出好产品，专注互联网产品研发。致力于开发出好玩有用的东西，业余时间自娱自乐。</p>
-        <p>如果你有好想法，苦于不会写代码，我们很乐于帮助你。</p>
-        <p>请发送邮件到：gang.ji@100dos.com</p>
+        <p>小打小闹也能出做出好产品，专注互联网产品研发。</p>
     </div> 
 
     <nav class="navbar navbar-fixed-bottom">
@@ -46,10 +44,21 @@
         <p>© <a href="http://www.100dos.com">百作坊</a>. Published with <a href="http://pages.github.com">GitHub Pages</a></p>
         </div>
     </nav>
+    <div class="modal fade" id="wechat-modal" tabindex="-1" role="dialog" aria-labelledby="wechatLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请扫描二维码，关注我们</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="center-block img-thumbnail" width="60%" src="/assets/images/qrcode_for_gh_b81f9d06ec2e_1280.jpg" alt="百作坊微信公众账号"/>  
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script>
-       
-    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
 </html>
 
