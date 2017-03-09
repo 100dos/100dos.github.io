@@ -13,15 +13,4 @@ body {
     -o-background-size:cover;obackground-size:cover;
     color: #FFF;
 }
-a {
-  background: transparent;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-a {
-    color: #21b384;
-    text-decoration: none;
-}
 
