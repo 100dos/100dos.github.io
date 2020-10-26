@@ -124,110 +124,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/search/search/delete-record",
-    "title": "删除查询记录",
-    "version": "1.0.0",
-    "name": "删除查询记录",
-    "group": "SEARCH",
-    "description": "<p>删除查询记录</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "sr_id",
-            "description": "<p>查询记录ID(必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>删除失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "SEARCH"
-  },
-  {
-    "type": "post",
-    "url": "/search/search/merge-record",
-    "title": "合并查询记录",
-    "version": "1.0.0",
-    "name": "删除查询记录",
-    "group": "SEARCH",
-    "description": "<p>删除查询记录</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "sr_ids",
-            "description": "<p>查询记录ID 数组(必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>合并失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "SEARCH"
-  },
-  {
-    "type": "post",
     "url": "/api/user/login",
     "title": "用户验证码登陆",
     "version": "1.0.0",
@@ -882,6 +778,110 @@ define({ "api": [
     },
     "filename": "backend/modules/api/controllers/SearchController.php",
     "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/search/search/delete-record",
+    "title": "删除查询记录",
+    "version": "1.0.0",
+    "name": "删除查询记录",
+    "group": "电脑验机记录",
+    "description": "<p>删除查询记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "sr_id",
+            "description": "<p>查询记录ID(必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>删除失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/search/search/merge-record",
+    "title": "合并查询记录",
+    "version": "1.0.0",
+    "name": "合并查询记录",
+    "group": "电脑验机记录",
+    "description": "<p>删除查询记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "sr_ids",
+            "description": "<p>查询记录ID 数组(必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>合并失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
   },
   {
     "type": "post",
