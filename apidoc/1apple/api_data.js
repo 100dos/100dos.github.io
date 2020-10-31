@@ -66,6 +66,65 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/common/ocr",
+    "title": "OCR图像识别SN",
+    "version": "1.0.0",
+    "name": "/api/common/ocr",
+    "group": "COMMON",
+    "description": "<p>OCR图像识别SN</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>识别失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/CommonController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
     "url": "/api/common/qr-code",
     "title": "扫描二维码",
     "version": "1.0.0",
@@ -120,6 +179,259 @@ define({ "api": [
       ]
     },
     "filename": "backend/modules/api/controllers/CommonController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
+    "url": "/api/common/upload",
+    "title": "上传文件",
+    "version": "1.0.0",
+    "name": "/api/common/upload",
+    "group": "COMMON",
+    "description": "<p>上传文件到腾讯对象存储</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>验证码无效</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/CommonController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-3u-report",
+    "title": "上传3U验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-3u-report",
+    "group": "COMMON",
+    "description": "<p>上传3U报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的3U验机报告</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传3U验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-ace-report",
+    "title": "上传爱思验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-ace-report",
+    "group": "COMMON",
+    "description": "<p>上传验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的爱思验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传爱思验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-hourglass-report",
+    "title": "上传沙漏验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-hourglass-report",
+    "group": "COMMON",
+    "description": "<p>上传沙漏验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的沙漏验机报告</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
     "groupTitle": "COMMON"
   },
   {
@@ -324,69 +636,17 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "content",
-            "description": "<p>备注内容</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
+            "type": "Intger",
             "optional": false,
             "field": "sr_id",
             "description": "<p>查询记录ID (必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>下载失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/SearchController.php",
-    "groupTitle": "查询"
-  },
-  {
-    "type": "post",
-    "url": "/api/search/download-record",
-    "title": "下载查询记录",
-    "version": "1.0.0",
-    "name": "下载查询记录",
-    "group": "查询",
-    "description": "<p>删除查询记录</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
           },
           {
             "group": "Parameter",
-            "type": "Array",
+            "type": "String",
             "optional": false,
-            "field": "sr_ids",
-            "description": "<p>查询记录ID 数组(必填)</p>"
+            "field": "remark",
+            "description": "<p>备注内容</p>"
           }
         ]
       }
@@ -422,7 +682,7 @@ define({ "api": [
     "version": "1.0.0",
     "name": "下载查询记录",
     "group": "查询",
-    "description": "<p>删除查询记录</p>",
+    "description": "<p>下载查询记录</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -573,10 +833,10 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/search/merge-record",
-    "title": "合并查询记录",
+    "url": "/api/search/delete-detail",
+    "title": "删除查询记录详情",
     "version": "1.0.0",
-    "name": "删除查询记录",
+    "name": "删除查询记录详情",
     "group": "查询",
     "description": "<p>删除查询记录</p>",
     "parameter": {
@@ -591,9 +851,68 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "sd_id",
+            "description": "<p>查询记录ID(必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>删除失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/merge-record",
+    "title": "合并查询记录",
+    "version": "1.0.0",
+    "name": "合并查询记录",
+    "group": "查询",
+    "description": "<p>合并查询记录: 合并所有历史查询结果的记录详情，到当前这条手机记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>查询记录ID 数组(必填)</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Array",
             "optional": false,
-            "field": "sr_ids",
+            "field": "sd_ids",
             "description": "<p>查询记录ID 数组(必填)</p>"
           }
         ]
@@ -616,6 +935,79 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/query-3023-data",
+    "title": "查询3023数据",
+    "version": "1.0.0",
+    "name": "查询3023数据",
+    "group": "查询",
+    "description": "<p>查询3023数据</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Inter",
+            "optional": false,
+            "field": "sr_id",
+            "description": "<p>查询记录（批次）ID, 即search_record_id (二次查询时使用)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>一个或多个SN 数组</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>查询类型: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -677,6 +1069,72 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/search/detail-list",
+    "title": "查询详情列表 (分页使用)",
+    "version": "1.0.0",
+    "name": "查询记录列表",
+    "group": "查询",
+    "description": "<p>只查询search_detail表(查询记录详情页下拉刷新,分页使用)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sr_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Inter",
+            "optional": false,
+            "field": "from_id",
+            "description": "<p>本次查询开始ID (detail_id)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"[\n            {\n                \"no\": 1, //序号\n                \"sn\": \"\"353248104625320,\n                \"id_lock\": true, // ID 锁\n                \"device_model\": \"IPhone XR\"  // 设备型号\n                \"color\": \"Gold\", // 颜色\n                \"capacity\": \"256G\", // 内存容量\n                ...\n            },\n            ...\n        ],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
     "url": "/api/search/record-list",
     "title": "查询记录详情列表",
     "version": "1.0.0",
@@ -698,6 +1156,13 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "sr_id",
             "description": ""
           }
         ]
@@ -747,10 +1212,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "int",
+            "type": "Intger",
             "optional": false,
-            "field": "sr_id",
-            "description": "<p>查询记录ID(必填)</p>"
+            "field": "sd_id",
+            "description": "<p>查询记录详情ID(必填)</p>"
           }
         ]
       }
