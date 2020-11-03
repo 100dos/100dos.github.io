@@ -1,65 +1,6 @@
 [
   {
     "type": "post",
-    "url": "/api/pcheck/print-bar-code打印条形码标签",
-    "title": "",
-    "description": "<p>打印条形码标签</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "pcds",
-            "description": "<p>电脑验机设备ID数组</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "group": "/opt/work/100dos/ffruit/ffruit/backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "/opt/work/100dos/ffruit/ffruit/backend/modules/api/controllers/PCheckController.php",
-    "name": "PostApiPcheckPrintBarCode"
-  },
-  {
-    "type": "post",
     "url": "/api/common/integral-pay",
     "title": "积分购买支付",
     "version": "1.0.0",
@@ -1445,6 +1386,65 @@
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/print-bar-code",
+    "title": "打印条形码标签",
+    "version": "1.0.0",
+    "name": "打印条形码标签",
+    "group": "电脑验机记录",
+    "description": "<p>打印条形码标签</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "pcds",
+            "description": "<p>电脑验机设备ID数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
