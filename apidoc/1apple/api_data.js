@@ -1,6 +1,65 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/api/pcheck/print-bar-code打印条形码标签",
+    "title": "",
+    "description": "<p>打印条形码标签</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "pcds",
+            "description": "<p>电脑验机设备ID数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "group": "/opt/work/100dos/ffruit/ffruit/backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "/opt/work/100dos/ffruit/ffruit/backend/modules/api/controllers/PCheckController.php",
+    "name": "PostApiPcheckPrintBarCode"
+  },
+  {
+    "type": "post",
     "url": "/api/common/integral-pay",
     "title": "积分购买支付",
     "version": "1.0.0",
@@ -241,201 +300,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/pcheck/upload-3u-report",
-    "title": "上传3U验机报告",
-    "version": "1.0.0",
-    "name": "/api/pcheck/upload-3u-report",
-    "group": "COMMON",
-    "description": "<p>上传3U报告文件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "file",
-            "description": "<p>上传文件key 为 file</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20001",
-            "description": "<p>请上传正确格式的3U验机报告</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20002",
-            "description": "<p>请上传3U验机报告文件, 文件key为file</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "COMMON"
-  },
-  {
-    "type": "post",
-    "url": "/api/pcheck/upload-ace-report",
-    "title": "上传爱思验机报告",
-    "version": "1.0.0",
-    "name": "/api/pcheck/upload-ace-report",
-    "group": "COMMON",
-    "description": "<p>上传验机报告文件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "file",
-            "description": "<p>上传文件key 为 file</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20001",
-            "description": "<p>请上传正确格式的爱思验机报</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20002",
-            "description": "<p>请上传爱思验机报告文件, 文件key为file</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "COMMON"
-  },
-  {
-    "type": "post",
-    "url": "/api/pcheck/upload-hourglass-report",
-    "title": "上传沙漏验机报告",
-    "version": "1.0.0",
-    "name": "/api/pcheck/upload-hourglass-report",
-    "group": "COMMON",
-    "description": "<p>上传沙漏验机报告文件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "file",
-            "description": "<p>上传文件key 为 file</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20001",
-            "description": "<p>请上传正确格式的沙漏验机报告</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20002",
-            "description": "<p>请上传沙漏验机报告文件, 文件key为file</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "COMMON"
-  },
-  {
-    "type": "post",
     "url": "/api/user/login",
     "title": "用户验证码登陆",
     "version": "1.0.0",
@@ -602,6 +466,58 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/query-price",
+    "title": "3023查询选项列表",
+    "version": "1.0.0",
+    "name": "/api/search/query-price",
+    "group": "查询",
+    "description": "<p>3023查询选项列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"[\n            {\n                \"name\": \"整机报告(全面)\",\n                \"type\": \"details\",\n                \"price\": 200 // 价格为精确到小数点后俩位整数，使用时除100即为真实价格\n            },\n            {\n                \"name\": \"整机报告(较全面)\",\n                \"type\": \"advanced\",\n                \"price\": 100 // 价格为精确到小数点后俩位整数，使用时除100即为真实价格\n            },\n            ...\n        ],\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -969,13 +885,6 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "Inter",
-            "optional": false,
-            "field": "sr_id",
-            "description": "<p>查询记录（批次）ID, 即search_record_id (二次查询时使用)</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "Array",
             "optional": false,
             "field": "snz",
@@ -983,10 +892,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Array",
             "optional": false,
-            "field": "type",
-            "description": "<p>查询类型: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
+            "field": "typez",
+            "description": "<p>查询类型数组, type类型如下: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
           }
         ]
       }
@@ -1246,6 +1155,201 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/pcheck/upload-3u-report",
+    "title": "上传3U验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-3u-report",
+    "group": "电脑验机记录",
+    "description": "<p>上传3U报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的3U验机报告</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传3U验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-ace-report",
+    "title": "上传爱思验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-ace-report",
+    "group": "电脑验机记录",
+    "description": "<p>上传验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的爱思验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传爱思验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-hourglass-report",
+    "title": "上传沙漏验机报告",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-hourglass-report",
+    "group": "电脑验机记录",
+    "description": "<p>上传沙漏验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>上传文件key 为 file</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>请上传正确格式的沙漏验机报告</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为file</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
     "url": "/search/search/delete-record",
     "title": "删除查询记录",
     "version": "1.0.0",
@@ -1349,60 +1453,8 @@ define({ "api": [
     "groupTitle": "电脑验机记录"
   },
   {
-    "type": "post",
-    "url": "/api/pc-check/list",
-    "title": "电脑验机记录列表",
-    "version": "1.0.0",
-    "name": "查询PC验机记录列表",
-    "group": "电脑验机记录",
-    "description": "<p>查询PC验机记录列表</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"remark\": \"3天需检测完毕\",\n            },\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"remark\": \"3天需检测完毕\",\n            },\n\n            ...\n    ]\n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
-    "groupTitle": "电脑验机记录"
-  },
-  {
     "type": "get",
-    "url": "/api/pc-check/detail-list",
+    "url": "/api/pcheck/detail-list",
     "title": "验机记录详情",
     "version": "1.0.0",
     "name": "验机记录详情",
