@@ -414,7 +414,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "content": " {\n \"code\": 99999,\n     \"data\": {\n     \"id\": \"1\",\n         \"username\": \"jigang\",\n         \"mobile\": \"18810236729\",\n         \"avatar\": \"\\\"\\\"\",\n         \"store_id\": \"1\",\n         \"role\": \"1\",\n         \"\": \"0\",\n         \"create_time\": \"2020-10-19 09:50:06\",\n         \"update_time\": \"2020-10-19 09:50:06\",\n         \"token\": \"MzZRX8Y+V4i8MBE2r+yCOQ==\"\n},\n    \"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -2120,7 +2120,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "Array",
             "optional": false,
-            "field": "qgr_idz",
+            "field": "idz",
             "description": "<p>进货质检记录ID 数组</p>"
           }
         ]
@@ -2202,6 +2202,72 @@ define({ "api": [
             "optional": false,
             "field": "pr_id",
             "description": "<p>电脑验机记录ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/qa-goods/record-briefing",
+    "title": "简报",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/record-briefing",
+    "group": "进货质检记录",
+    "description": "<p>简报</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>进货质检记录ID</p>"
           }
         ]
       }
