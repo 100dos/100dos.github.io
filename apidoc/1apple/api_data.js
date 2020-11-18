@@ -671,7 +671,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "/api/wechat/wx-auth",
-    "title": "微信授权跳转 (后端调用，忽略)",
+    "title": "微信授权跳转",
     "version": "1.0.0",
     "name": "wx-auth",
     "group": "Wechat",
