@@ -481,13 +481,259 @@
     "groupTitle": "USER"
   },
   {
+    "type": "get",
+    "url": "/api/wechat/bind-user",
+    "title": "绑定用户",
+    "version": "1.0.0",
+    "name": "bind-student",
+    "group": "Wechat",
+    "description": "<p>绑定用户</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源（androidRCStudent/iOSRCStudent）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号 (必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vcode",
+            "description": "<p>验证码 (必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "openId",
+            "description": "<p>openId (必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>请求参数错误</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n   'token':'',\n},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/WechatController.php",
+    "groupTitle": "Wechat"
+  },
+  {
+    "type": "get",
+    "url": "/api/wechat/get-share-user-info",
+    "title": "获取微信用户信息",
+    "version": "1.0.0",
+    "name": "get-share-user-info",
+    "group": "Wechat",
+    "description": "<p>获取微信用户信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "openId",
+            "description": "<p>微信openId</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>请求参数错误</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n    \"openid\": \"oVwRGwSS_Wg8EAqNNV2mehz9d0vs\", // 微信openId\n    \"nickname\": \"XX\", // 微信昵称\n    \"sex\": 1, \n    \"language\": \"zh_CN\",\n    \"city\": \"朝阳\",\n    \"province\": \"北京\",\n    \"country\": \"中国\",\n    \"headimgurl\": \"http://wx.qlogo.cn/mmopen/vi_32/ajNVdqHZLLDxm8CapjZr2PuClhTz8CpvOq6UO9rGVHQiauBiatGg8cOUtuWSCNH3CEicc6lq0o0lNXPTrVQ7Je6xA/0\", // 微信头像\n},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/WechatController.php",
+    "groupTitle": "Wechat"
+  },
+  {
+    "type": "get",
+    "url": "/api/wechat/wechat-ticket",
+    "title": "获取js票据",
+    "version": "1.0.0",
+    "name": "wechat-ticket",
+    "group": "Wechat",
+    "description": "<p>发送验证码</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源（androidRCStudent/iOSRCStudent）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>请求参数错误</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n   appId: '', // 必填，公众号的唯一标识\n   timestamp: , // 必填，生成签名的时间戳\n   nonceStr: '', // 必填，生成签名的随机串\n   signature: '',// 必填，签名，见附录1\n   authUrl: '',// 授权地址\n},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/WechatController.php",
+    "groupTitle": "Wechat"
+  },
+  {
+    "type": "get",
+    "url": "/api/wechat/wx-auth",
+    "title": "微信授权跳转 (后端调用，忽略)",
+    "version": "1.0.0",
+    "name": "wx-auth",
+    "group": "Wechat",
+    "description": "<p>微信授权跳转</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>微信code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>微信state</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>请求参数错误</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/WechatController.php",
+    "groupTitle": "Wechat"
+  },
+  {
     "type": "post",
     "url": "/api/manual-testing/get-filter-list",
     "title": "获取人工筛项选列表",
     "version": "1.0.0",
     "name": "/api/manual-testing/get-filter-list",
     "group": "人工检测",
-    "description": "<p>获取人工筛项选列表</p>",
+    "description": "<p>获取人工筛项选列表 <br></p> <ol> <li>优先获取店铺配置的筛选项 <br></li> <li>获取默认店铺配置 <br></li> </ol>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -531,7 +777,7 @@
       "examples": [
         {
           "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": true,\n\"msg\": \"成功\"\n}",
+          "content": "{\n   \"code\": 99999,\n   \"data\": [\n       {\n           \"id\": \"1\",\n           \"pid\": \"0\",\n           \"type\": \"0\",\n           \"name\": \"屏幕\",\n           \"1_level\": [\n               {\n                   \"id\": \"4\",\n                   \"pid\": \"1\",\n                   \"type\": \"1\",\n                   \"name\": \"纯原\",\n                   \"2_level\": [\n                       {\n                           \"id\": \"9\",\n                           \"pid\": \"4\",\n                           \"type\": \"2\",\n                           \"name\": \"纯原\",\n                           \"item1_key\": \"1\",\n                           \"item1_value\": \"不分\",\n                           \"item2_key\": \"2\",\n                           \"item2_value\": \"正常\",\n                           \"item3_key\": \"3\",\n                           \"item3_value\": \"有问题\"\n                       }\n                   ]\n               },\n               ,\n               ...\n           ]\n       },\n       ....\n   ],\n   \"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
