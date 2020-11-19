@@ -364,7 +364,7 @@
     "version": "1.0.0",
     "name": "/api/user/login",
     "group": "USER",
-    "description": "<p>用户登陆</p>",
+    "description": "<p>用户登陆: 根据传入参数选择登陆方式：<br> 手机验证码 账号密码</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -387,7 +387,14 @@
             "type": "String",
             "optional": false,
             "field": "code",
-            "description": "<p>短信验证码 (必填)</p>"
+            "description": "<p>短信验证码 (选填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pwd",
+            "description": "<p>账号密码(选填)</p>"
           }
         ]
       }
@@ -554,7 +561,7 @@
             "type": "String",
             "optional": false,
             "field": "source",
-            "description": "<p>来源（androidRCStudent/iOSRCStudent）</p>"
+            "description": "<p>来源（h5/pc）</p>"
           },
           {
             "group": "Parameter",
@@ -684,7 +691,7 @@
             "type": "String",
             "optional": false,
             "field": "source",
-            "description": "<p>来源（androidRCStudent/iOSRCStudent）</p>"
+            "description": "<p>来源（h5/pc）</p>"
           },
           {
             "group": "Parameter",
