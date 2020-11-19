@@ -482,6 +482,64 @@
   },
   {
     "type": "get",
+    "url": "/api/wechat/base-auth",
+    "title": "微信基础授权跳转",
+    "version": "1.0.0",
+    "name": "base-auth",
+    "group": "Wechat",
+    "description": "<p>微信授权跳转</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>微信code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>微信state</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>请求参数错误</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>未登录</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n    \"access_token\":\"39_rKA94OG3j1gkkV70q3s4ZDv8QnYLie7g-izt7qTQ7BS8byo3uG-ee3xaKTsW8YpAJY91TekpyKIjtP2kUetG0A\",\n    \"expires_in\":7200,\"refresh_token\":\"39_yiyfocE8qt01KqdoLU8p4riSzv8eY-mLWdFnD4E-6EXuYLCxOX62GugkSV946HhsuU6mT35VecRWUE1LSr8ZHA\",\n    \"openid\":\"oB6MS6Npe8SFrVrznFeFA-nIIapo\",\n    \"scope\":\"snsapi_base\"\n    },\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/WechatController.php",
+    "groupTitle": "Wechat"
+  },
+  {
+    "type": "get",
     "url": "/api/wechat/bind-user",
     "title": "绑定用户",
     "version": "1.0.0",
