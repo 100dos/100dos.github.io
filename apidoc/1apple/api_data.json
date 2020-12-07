@@ -927,6 +927,72 @@
     "groupTitle": "USER"
   },
   {
+    "type": "get",
+    "url": "/api/user/search-user-by-mobile",
+    "title": "根据手机号搜索用户(添加店员时使用)",
+    "version": "1.0.0",
+    "name": "/api/user/search-user-by-mobile",
+    "group": "USER",
+    "description": "<p>根据手机号搜索用户(添加店员时使用)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源(h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": " {\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/UserController.php",
+    "groupTitle": "USER"
+  },
+  {
     "type": "post",
     "url": "/api/user/send-code",
     "title": "发送手机验证码",
@@ -1612,6 +1678,65 @@
     "groupTitle": "分享"
   },
   {
+    "type": "get",
+    "url": "/api/store/add-user",
+    "title": "店铺添加店员",
+    "version": "1.0.0",
+    "name": "/api/store/add-user",
+    "group": "店铺",
+    "description": "<p>店铺添加店员</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>添加的用户id</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>添加失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
     "type": "post",
     "url": "/api/store/create-recharge-order",
     "title": "创建充值积分预支付订单",
@@ -1685,7 +1810,7 @@
     "groupTitle": "店铺"
   },
   {
-    "type": "post",
+    "type": "get",
     "url": "/api/store/get-users",
     "title": "获取店铺人员",
     "version": "1.0.0",
@@ -3632,6 +3757,65 @@
   },
   {
     "type": "post",
+    "url": "/api/pcheck/delete-device",
+    "title": "删除电脑验机记录详情",
+    "version": "1.0.0",
+    "name": "/api/pcheck/delete-device",
+    "group": "电脑验机记录",
+    "description": "<p>删除查询记录详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "pd_idz",
+            "description": "<p>电脑验机记录ID数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>删除失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
     "url": "/api/pcheck/delete-record",
     "title": "删除电脑验机记录",
     "version": "1.0.0",
@@ -3755,6 +3939,58 @@
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\n    [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_lock\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/pcheck/download-detail",
+    "title": "电脑验机记录详情下载（下载文件内容同电脑验机记录）",
+    "version": "1.0.0",
+    "name": "/api/pcheck/download-detail",
+    "group": "电脑验机记录",
+    "description": "<p>电脑验机记录详情下载（下载文件内容同电脑验机记录）</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "idz",
+            "description": "<p>设备ID, 多个Id 用英文逗号分隔 (必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>下载失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -4256,7 +4492,7 @@
             "type": "Number",
             "optional": false,
             "field": "idz",
-            "description": "<p>查询记录ID, 多个Id 用英文逗号分隔 (必填)</p>"
+            "description": "<p>电脑验机记录ID, 多个Id 用英文逗号分隔 (必填)</p>"
           }
         ]
       }
@@ -4530,6 +4766,308 @@
   },
   {
     "type": "post",
+    "url": "/api/expenses/add-goods-to-expenses",
+    "title": "向费用清款单中添加商品设备",
+    "version": "1.0.0",
+    "name": "/api/expenses/add-goods-to-expenses",
+    "group": "费用请款单",
+    "description": "<p>向费用清款单中添加商品设备</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": "<p>费用清款单ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "goods_idz",
+            "description": "<p>多个商品ID数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/approved-list",
+    "title": "审核通过列表",
+    "version": "1.0.0",
+    "name": "/api/expenses/approved-list",
+    "group": "费用请款单",
+    "description": "<p>审核通过列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/draft-list",
+    "title": "草稿列表",
+    "version": "1.0.0",
+    "name": "/api/expenses/draft-list",
+    "group": "费用请款单",
+    "description": "<p>草稿列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/new-expenses",
+    "title": "新建费用请款单",
+    "version": "1.0.0",
+    "name": "/api/expenses/new-expenses",
+    "group": "费用请款单",
+    "description": "<p>新建费用请款单</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": "<p>进货质检记录</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/wait-approve-list",
+    "title": "待审核列表",
+    "version": "1.0.0",
+    "name": "/api/expenses/wait-approve-list",
+    "group": "费用请款单",
+    "description": "<p>待审核列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
     "url": "/api/qa-goods/addto-record-from-pcheck",
     "title": "从电脑验机添加到已有进货质检记录",
     "version": "1.0.0",
@@ -4733,6 +5271,58 @@
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/qa-goods/download-detail",
+    "title": "进货质检记录详情下载（下载文件内容同进货质检记录）",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/download-detail",
+    "group": "进货质检记录",
+    "description": "<p>进货质检记录详情下载（下载文件内容同进货质检记录）</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "idz",
+            "description": "<p>进货商品ID, 多个Id 用英文逗号分隔 (必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>下载失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
