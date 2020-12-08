@@ -4801,7 +4801,139 @@ define({ "api": [
             "type": "Array",
             "optional": false,
             "field": "goods_idz",
-            "description": "<p>多个商品ID数组</p>"
+            "description": "<p>多个商品设备ID <br></p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/add-pay-user",
+    "title": "添加支付对象(往来账户)",
+    "version": "1.0.0",
+    "name": "/api/expenses/add-pay-user",
+    "group": "费用请款单",
+    "description": "<p>添加支付对象(往来账户)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>支付对象名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>支付对象手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>支付对象手地址</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/add-to-accounting",
+    "title": "记账标记",
+    "version": "1.0.0",
+    "name": "/api/expenses/add-to-accounting",
+    "group": "费用请款单",
+    "description": "<p>获取筛选条件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ex_idz",
+            "description": "<p>费用清款单ID</p>"
           }
         ]
       }
@@ -4861,6 +4993,329 @@ define({ "api": [
             "optional": false,
             "field": "record_id",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "me",
+            "description": "<p>只看我的</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选条件</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/batch-save-cost",
+    "title": "批量设定保存费用",
+    "version": "1.0.0",
+    "name": "/api/expenses/batch-save-cost",
+    "group": "费用请款单",
+    "description": "<p>批量设定保存费用</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": "<p>费用清款单ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ex_goods_idz",
+            "description": "<p>费用清款单包含商品关系表的ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "costz",
+            "description": "<p>单个费用内容如下: <br> {Number} type 费用类型: 费用类型: 1检车费用 2采购费用 3维修费用 <br> {String} privider 提供方 <br> {String} description 描述 <br> {Number} cost 花费单价 <br></p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "get",
+    "url": "/api/expenses/cost-list",
+    "title": "获取具体费用列表",
+    "version": "1.0.0",
+    "name": "/api/expenses/cost-list",
+    "group": "费用请款单",
+    "description": "<p>获取具体费用列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_goods_id",
+            "description": "<p>费用清款单关联商品表ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/delete-cost",
+    "title": "删除具体费用",
+    "version": "1.0.0",
+    "name": "/api/expenses/delete-cost",
+    "group": "费用请款单",
+    "description": "<p>删除具体费用</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "cost_idz",
+            "description": "<p>具体费用ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/delete-expenses",
+    "title": "删除费用清款单",
+    "version": "1.0.0",
+    "name": "/api/expenses/delete-expenses",
+    "group": "费用请款单",
+    "description": "<p>删除费用清款单</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ex_idz",
+            "description": "<p>费用清款单ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/delete-goods",
+    "title": "删除费用清款单关联商品设备",
+    "version": "1.0.0",
+    "name": "/api/expenses/delete-goods",
+    "group": "费用请款单",
+    "description": "<p>删除费用清款单关联商品设备</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ex_goods_idz",
+            "description": "<p>费用清款单关联商品ID</p>"
           }
         ]
       }
@@ -4919,6 +5374,124 @@ define({ "api": [
             "type": "Number",
             "optional": false,
             "field": "record_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "me",
+            "description": "<p>只看我的</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "get",
+    "url": "/api/expenses/expenses-detail",
+    "title": "费用清款单详情",
+    "version": "1.0.0",
+    "name": "/api/expenses/expenses-detail",
+    "group": "费用请款单",
+    "description": "<p>费用清款单详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "get",
+    "url": "/api/expenses/get-filters",
+    "title": "获取筛选条件",
+    "version": "1.0.0",
+    "name": "/api/expenses/get-filters",
+    "group": "费用请款单",
+    "description": "<p>获取筛选条件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
             "description": ""
           }
         ]
@@ -5009,6 +5582,315 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/expenses/not-pass-approve",
+    "title": "审核不通过退回草稿",
+    "version": "1.0.0",
+    "name": "/api/expenses/not-pass-approve",
+    "group": "费用请款单",
+    "description": "<p>审核不通过退回草稿</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": "<p>费用清款单ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/pass-approve",
+    "title": "审核通过",
+    "version": "1.0.0",
+    "name": "/api/expenses/pass-approve",
+    "group": "费用请款单",
+    "description": "<p>审核通过</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": "<p>费用清款单ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "get",
+    "url": "/api/expenses/pay-users",
+    "title": "支付对象列表(往来账户)",
+    "version": "1.0.0",
+    "name": "/api/expenses/pay-users",
+    "group": "费用请款单",
+    "description": "<p>支付对象列表(往来账户))</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/save-cost",
+    "title": "保存具体费用",
+    "version": "1.0.0",
+    "name": "/api/expenses/save-cost",
+    "group": "费用请款单",
+    "description": "<p>保存具体费用</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_goods_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "del_idz",
+            "description": "<p>删除的Id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "costz",
+            "description": "<p>单个费用内容如下: <br> {Number} id 如果传入id为更新, 不传为新增<br> {Number} type 费用类型: 费用类型: 1检车费用 2采购费用 3维修费用 <br> {String} privider 提供方 <br> {String} description 描述 <br> {Number} cost 花费单价 <br></p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
+    "url": "/api/expenses/submit",
+    "title": "提交审核",
+    "version": "1.0.0",
+    "name": "/api/expenses/submit",
+    "group": "费用请款单",
+    "description": "<p>提交审核</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "ex_id",
+            "description": "<p>费用清款单ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ExpensesController.php",
+    "groupTitle": "费用请款单"
+  },
+  {
+    "type": "post",
     "url": "/api/expenses/wait-approve-list",
     "title": "待审核列表",
     "version": "1.0.0",
@@ -5038,6 +5920,13 @@ define({ "api": [
             "optional": false,
             "field": "record_id",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "me",
+            "description": "<p>只看我的</p>"
           }
         ]
       }
@@ -5184,6 +6073,72 @@ define({ "api": [
             "optional": false,
             "field": "sr_idz",
             "description": "<p>查询记录ID数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/delete-goods",
+    "title": "进货质检记录详情删除",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/delete-goods",
+    "group": "进货质检记录",
+    "description": "<p>进货质检记录详情删除,删除进货商品（设备）</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "idz",
+            "description": "<p>商品ID 数组</p>"
           }
         ]
       }
@@ -5726,6 +6681,65 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": true,\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/print-label",
+    "title": "打印标签",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/print-label",
+    "group": "进货质检记录",
+    "description": "<p>打印进货质检记录标签</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "idz",
+            "description": "<p>商品设备ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>打印失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
