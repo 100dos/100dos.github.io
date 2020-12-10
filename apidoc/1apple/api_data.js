@@ -4602,202 +4602,6 @@ define({ "api": [
     "groupTitle": "电脑验机记录"
   },
   {
-    "type": "post",
-    "url": "/api/pcheck/upload-hourglass-report",
-    "title": "上传沙漏验机报告和沙漏设备详情",
-    "version": "1.0.0",
-    "name": "/api/pcheck/upload-hourglass-report",
-    "group": "电脑验机记录",
-    "description": "<p>上传沙漏验机报告文件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "source",
-            "description": "<p>来源 pc/h5/wx/android/ios</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "report",
-            "description": "<p>上传的沙漏验机报告文件</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "device",
-            "description": "<p>上传的沙漏设备详情文件</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Intger",
-            "optional": false,
-            "field": "prid",
-            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20002",
-            "description": "<p>请上传沙漏验机报告文件, 文件key为report</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20003",
-            "description": "<p>请上传沙漏验机报告文件, 文件key为device</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20004",
-            "description": "<p>请上传正确格式的沙漏验机报</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20005",
-            "description": "<p>请上传正确格式的沙漏设备详情</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/QaGoodsController.php",
-    "groupTitle": "电脑验机记录"
-  },
-  {
-    "type": "post",
-    "url": "/api/qa-goods/upload-3u-report",
-    "title": "上传3U验机报告和设备详情",
-    "version": "1.0.0",
-    "name": "/api/qa-goods/upload-3u-report",
-    "group": "电脑验机记录",
-    "description": "<p>上传3U报告文件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "source",
-            "description": "<p>来源 pc/h5/wx/android/ios</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "report",
-            "description": "<p>上传的3U验机报告文件</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "File",
-            "optional": false,
-            "field": "device",
-            "description": "<p>上传的3U设备详情文件</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Intger",
-            "optional": false,
-            "field": "prid",
-            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20002",
-            "description": "<p>请上传3U验机报告文件, 文件key为report</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20003",
-            "description": "<p>请上传3U验机报告文件, 文件key为device</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20004",
-            "description": "<p>请上传正确格式的3U验机报</p>"
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20005",
-            "description": "<p>请上传正确格式的3U设备详情</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/QaGoodsController.php",
-    "groupTitle": "电脑验机记录"
-  },
-  {
     "type": "get",
     "url": "/api/pcheck/download-record",
     "title": "下载电脑验机记录",
@@ -7470,6 +7274,104 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/qa-goods/upload-3u-report",
+    "title": "上传3U验机报告和设备详情",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/upload-3u-report",
+    "group": "进货质检记录",
+    "description": "<p>上传3U报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "report",
+            "description": "<p>上传的3U验机报告文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "device",
+            "description": "<p>上传的3U设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "prid",
+            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传3U验机报告文件, 文件key为report</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>请上传3U验机报告文件, 文件key为device</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20004",
+            "description": "<p>请上传正确格式的3U验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20005",
+            "description": "<p>请上传正确格式的3U设备详情</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
     "url": "/api/qa-goods/upload-ace-report",
     "title": "上传爱思验机报告和设备详情",
     "version": "1.0.0",
@@ -7550,6 +7452,104 @@ define({ "api": [
             "optional": false,
             "field": "20005",
             "description": "<p>请上传正确格式的爱思设备详情</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/upload-hourglass-report",
+    "title": "上传沙漏验机报告和沙漏设备详情",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/upload-hourglass-report",
+    "group": "进货质检记录",
+    "description": "<p>上传沙漏验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "report",
+            "description": "<p>上传的沙漏验机报告文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "device",
+            "description": "<p>上传的沙漏设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "prid",
+            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为report</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为device</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20004",
+            "description": "<p>请上传正确格式的沙漏验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20005",
+            "description": "<p>请上传正确格式的沙漏设备详情</p>"
           }
         ]
       }
