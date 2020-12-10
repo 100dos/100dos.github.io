@@ -4051,6 +4051,138 @@ define({ "api": [
     "groupTitle": "电脑验机记录"
   },
   {
+    "type": "post",
+    "url": "/api/pcheck/pc-new-record",
+    "title": "PC端新建进货质检记录",
+    "version": "1.0.0",
+    "name": "/api/pcheck/pc-new-record",
+    "group": "电脑验机记录",
+    "description": "<p>PC端新建进货质检记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {\n        \"id\": 1,\n    }\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/pcheck/pc-record-list",
+    "title": "PC端搜索电脑验机记录",
+    "version": "1.0.0",
+    "name": "/api/pcheck/pc-record-list",
+    "group": "电脑验机记录",
+    "description": "<p>PC端搜索电脑验机记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "search",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "start_date",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "end_date",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"id\": 1,\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"remark\": \"3天需检测完毕\",\n            },\n            ...\n    ]\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
     "type": "get",
     "url": "/api/pcheck/record-detail",
     "title": "电脑验机记录详情",
@@ -4467,6 +4599,202 @@ define({ "api": [
       ]
     },
     "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/upload-hourglass-report",
+    "title": "上传沙漏验机报告和沙漏设备详情",
+    "version": "1.0.0",
+    "name": "/api/pcheck/upload-hourglass-report",
+    "group": "电脑验机记录",
+    "description": "<p>上传沙漏验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "report",
+            "description": "<p>上传的沙漏验机报告文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "device",
+            "description": "<p>上传的沙漏设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "prid",
+            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为report</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>请上传沙漏验机报告文件, 文件key为device</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20004",
+            "description": "<p>请上传正确格式的沙漏验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20005",
+            "description": "<p>请上传正确格式的沙漏设备详情</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/upload-3u-report",
+    "title": "上传3U验机报告和设备详情",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/upload-3u-report",
+    "group": "电脑验机记录",
+    "description": "<p>上传3U报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "report",
+            "description": "<p>上传的3U验机报告文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "device",
+            "description": "<p>上传的3U设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "prid",
+            "description": "<p>验机记录ID，不传默认为0 (非必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传3U验机报告文件, 文件key为report</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>请上传3U验机报告文件, 文件key为device</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20004",
+            "description": "<p>请上传正确格式的3U验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20005",
+            "description": "<p>请上传正确格式的3U设备详情</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -6690,6 +7018,79 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/qa-goods/pc-new-record",
+    "title": "PC端添加进货质检记录",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/pc-new-record",
+    "group": "进货质检记录",
+    "description": "<p>PC端添加进货质检记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "supplier",
+            "description": "<p>供货商名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "count",
+            "description": "<p>本批次总数量</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
     "url": "/api/qa-goods/print-label",
     "title": "打印标签",
     "version": "1.0.0",
@@ -7060,6 +7461,104 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n   \"code\": 99999,\n   \"data\": [\n       {\n           \"id\": \"5\",\n           \"supplier\": \"张三李四\",\n           \"create_time\": \"2020-11-06 08:56:26\"\n       },\n             ...\n     ]\n \"msg\": \"成功\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/upload-ace-report",
+    "title": "上传爱思验机报告和设备详情",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/upload-ace-report",
+    "group": "进货质检记录",
+    "description": "<p>上传验机报告文件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "report",
+            "description": "<p>上传的爱思验机报告文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "device",
+            "description": "<p>上传的爱思设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "prid",
+            "description": "<p>进货质检记录ID，不传默认为0 (非必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20002",
+            "description": "<p>请上传爱思验机报告文件, 文件key为report</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20003",
+            "description": "<p>请上传爱思验机报告文件, 文件key为device</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20004",
+            "description": "<p>请上传正确格式的爱思验机报</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20005",
+            "description": "<p>请上传正确格式的爱思设备详情</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
