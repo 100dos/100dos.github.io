@@ -4053,11 +4053,11 @@
   {
     "type": "post",
     "url": "/api/pcheck/pc-new-record",
-    "title": "PC端新建进货质检记录",
+    "title": "PC端新建电脑验机记录",
     "version": "1.0.0",
     "name": "/api/pcheck/pc-new-record",
     "group": "电脑验机记录",
-    "description": "<p>PC端新建进货质检记录</p>",
+    "description": "<p>PC端新建电脑验机记录</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -6886,6 +6886,79 @@
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/qa-goods/pc-record-list",
+    "title": "PC端搜索进货质检记录",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/pc-record-list",
+    "group": "进货质检记录",
+    "description": "<p>PC端搜索进货质检记录</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "search",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "start_date",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "end_date",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"id\": 1,\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"remark\": \"3天需检测完毕\",\n            },\n            ...\n    ]\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
