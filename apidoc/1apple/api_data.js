@@ -119,6 +119,65 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/common/get-china-region",
+    "title": "获取中国地区列表",
+    "version": "1.0.0",
+    "name": "/api/common/get-china-region",
+    "group": "COMMON",
+    "description": "<p>获取中国地区列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pid",
+            "description": "<p>地区父级ID 当 pid=0 获取省份级别列表</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"[]\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/CommonController.php",
+    "groupTitle": "COMMON"
+  },
+  {
+    "type": "post",
     "url": "/api/common/identify-txt",
     "title": "识别文字中的IMEI",
     "version": "1.0.0",
@@ -614,6 +673,65 @@ define({ "api": [
     "groupTitle": "USER"
   },
   {
+    "type": "post",
+    "url": "/api/user/logout",
+    "title": "用户退出登陆",
+    "version": "1.0.0",
+    "name": "/api/user/logout",
+    "group": "USER",
+    "description": "<p>退出登陆，需要删除浏览器本地对应用户cookie,并需要删除服务器端的用户缓存，以免浪费资源</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源(h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n   \"code\": 99999,\n   \"data\": \"\",\n   \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/UserController.php",
+    "groupTitle": "USER"
+  },
+  {
     "type": "get",
     "url": "/api/user/new-address",
     "title": "新增用户地址",
@@ -853,6 +971,79 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": " {\n \"code\": 99999,\n     \"data\": {\n     \"id\": \"1\",\n         \"username\": \"jigang\",\n         \"mobile\": \"18810236729\",\n         \"avatar\": \"\\\"\\\"\",\n         \"store_id\": \"1\",\n         \"role\": \"1\",\n         \"create_time\": \"2020-10-19 09:50:06\",\n         \"update_time\": \"2020-10-19 09:50:06\",\n         \"token\": \"MzZRX8Y+V4i8MBE2r+yCOQ==\"\n},\n    \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/UserController.php",
+    "groupTitle": "USER"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/save-new-password",
+    "title": "保存新密码(重置密码)",
+    "version": "1.0.0",
+    "name": "/api/user/save-new-password",
+    "group": "USER",
+    "description": "<p>保存新密码(重置密码)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源(h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>用户手机号 (必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>短信验证码 (必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pwd",
+            "description": "<p>账号密码(必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": "<p>验证码无效</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": " {\n \"code\": 99999,\n  \"data\": {},\n  \"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -1362,6 +1553,53 @@ define({ "api": [
     "groupTitle": "Wechat"
   },
   {
+    "type": "post",
+    "url": "/api/manual-testing/get-dropdown-menu",
+    "title": "获取拆机检测下拉菜单",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/get-dropdown-menu",
+    "group": "人工检测",
+    "description": "<p>获取拆机检测下拉菜单</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
+  },
+  {
     "type": "get",
     "url": "/api/manual-testing/get-filter-list",
     "title": "获取人工筛项选菜单列表",
@@ -1427,7 +1665,7 @@ define({ "api": [
     "version": "1.0.0",
     "name": "/api/manual-testing/save-filter",
     "group": "人工检测",
-    "description": "<p>保存人工检测菜单</p>",
+    "description": "<p>保存人工检测菜单，检测小项排序、隐藏等、下面的描述标签</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1456,15 +1694,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "Intger",
             "optional": false,
-            "field": "goods_id",
-            "description": "<p>进货设备ID</p>"
+            "field": "store_id",
+            "description": "<p>店铺ID</p>"
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Array",
             "optional": false,
             "field": "data",
-            "description": "<p>人工检测JSON数据结果  {[1:['result':1, 'image':'上出啊的图片'], 2:[...], ...]}  对应为key:result</p>"
+            "description": "<p>数据 { // 全部的检测小项 &quot;filters&quot;: [ { &quot;name_index&quot;: &quot;screen_fineness&quot;, &quot;order&quot;:1, // 排序 &quot;is_display:1, // 1为现实 0为隐藏 &quot;is_delete:0, // 1为删除&quot; &quot;des_tags&quot;:[ &quot;微花&quot;, &quot;划伤&quot;, &quot;硬伤&quot; ] },</p> <pre><code>     ....  ],  // 修改的拆机检测  &quot;tear_detections&quot;: [      &quot;name_index&quot;: &quot;screen_parts_origon&quot;,      &quot;des_tags&quot;: [          &quot;屏幕：国产屏&quot;,          &quot;屏幕：组装屏&quot;      ]  ] </code></pre> <p>}</p>"
           }
         ]
       }
@@ -1537,7 +1775,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "resultz",
-            "description": "<p>人工检测JSON数据结果  <br> [{'filter_id':1, 'choose':1, 'img':'上传的图片', 'des_tags:'['标签1', '标签2']}, ...]  <br> id 参数: 菜单ID choose 参数: 0=未检测, 1=正常,  2=有问题 img: 上传的图片 des_tags 参数 : 选择的描述标签</p>"
+            "description": "<p>人工检测JSON数据结果  <br> [{'filter_id':1,,'name_index':'simlock', 'choose':1, 'img':'上传的图片', 'des_tags:'['标签1', '标签2']}, ...]  <br> filter_id 参数: 检测小项ID choose 参数: 0=未检测, 1=正常,  2=有问题 img: 上传的图片 des_tags 参数 : 选择的描述标签</p>"
           }
         ]
       }
@@ -1559,6 +1797,121 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": true,\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
+  },
+  {
+    "type": "post",
+    "url": "/api/manual-testing/tear-detection-destags",
+    "title": "获取拆机检测菜单的描述标签",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/tear-detection-destags",
+    "group": "人工检测",
+    "description": "<p>获取拆机检测菜单</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name_index",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
+  },
+  {
+    "type": "post",
+    "url": "/api/manual-testing/worker-detection",
+    "title": "获取人工检测工人操作页面",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/worker-detection",
+    "group": "人工检测",
+    "description": "<p>获取人工检测工人操作页面</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "goods_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [],\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -1832,6 +2185,65 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "get",
+    "url": "/api/store/trade-details",
+    "title": "获取积分交易明细",
+    "version": "1.0.0",
+    "name": "/api/store/trade-details",
+    "group": "店铺",
+    "description": "<p>获取积分交易明细</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "from_id",
             "description": ""
           }
         ]
@@ -2692,6 +3104,58 @@ define({ "api": [
     "groupTitle": "查询"
   },
   {
+    "type": "get",
+    "url": "/api/search/get-search-filters",
+    "title": "获取查询筛选条件列表",
+    "version": "1.0.0",
+    "name": "/api/search/get-search-filters",
+    "group": "查询",
+    "description": "<p>获取查询筛选条件列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
     "type": "post",
     "url": "/api/search/print-barcode-label",
     "title": "打印条形码标签",
@@ -2804,6 +3268,79 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/search/record-list",
+    "title": "查询记录列表",
+    "version": "1.0.0",
+    "name": "/api/search/record-list",
+    "group": "查询",
+    "description": "<p>查询记录列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "me",
+            "description": "<p>只看我的(非必填) 默认是0， 1 为只看我的数据</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "from_id",
+            "description": "<p>分页使用当前最大id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选过滤条件 {&quot;user_id&quot;: 3, &quot;start_date&quot;:&quot;2020-10-10&quot;, &quot;end_date&quot;:&quot;2020-11-11&quot;} <br> 参数: <br> user_id: 创建人用户ID <br> start_date: 开始时间 <br> end_date : 结束时间<br></p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n\n            ...\n    ]\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
     "url": "/api/search/save-remark",
     "title": "保存备注",
     "version": "1.0.0",
@@ -2852,58 +3389,6 @@ define({ "api": [
             "optional": false,
             "field": "20000",
             "description": "<p>下载失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/SearchController.php",
-    "groupTitle": "查询"
-  },
-  {
-    "type": "get",
-    "url": "/api/search/get-search-filters",
-    "title": "获取查询筛选条件列表",
-    "version": "1.0.0",
-    "name": "/api/search/save-remark",
-    "group": "查询",
-    "description": "<p>获取查询筛选条件列表</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>failed</p>"
           }
         ]
       }
@@ -3161,72 +3646,6 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/SearchController.php",
-    "groupTitle": "查询"
-  },
-  {
-    "type": "get",
-    "url": "/api/search/record-list",
-    "title": "查询记录列表",
-    "version": "1.0.0",
-    "name": "查询记录列表",
-    "group": "查询",
-    "description": "<p>查询记录列表</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "Intger",
-            "optional": false,
-            "field": "me",
-            "description": "<p>只看我的(非必填) 默认是0， 1 为只看我的数据</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Intger",
-            "optional": false,
-            "field": "from_id",
-            "description": "<p>分页使用当前最大id</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n\n            ...\n    ]\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -3875,6 +4294,65 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/pcheck/device-detail",
+    "title": "验机记录手机设备详情",
+    "version": "1.0.0",
+    "name": "/api/pcheck/device-detail",
+    "group": "电脑验机记录",
+    "description": "<p>验机记录手机设备详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>验机设备ID(必填)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
+  },
+  {
+    "type": "post",
     "url": "/api/pcheck/device-list",
     "title": "验机记录手机列表",
     "version": "1.0.0",
@@ -3904,13 +4382,6 @@ define({ "api": [
             "optional": false,
             "field": "pr_id",
             "description": "<p>验机记录ID(必填)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "type",
-            "description": "<p>筛选类型 1 查询 2 电脑验机</p>"
           },
           {
             "group": "Parameter",
@@ -4042,7 +4513,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"search\" : {},\n    \"pcheck\" : {}\n}\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -4242,7 +4713,7 @@ define({ "api": [
     "groupTitle": "电脑验机记录"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "/api/pcheck/record-list",
     "title": "电脑验机记录列表",
     "version": "1.0.0",
@@ -4279,6 +4750,13 @@ define({ "api": [
             "optional": false,
             "field": "from_id",
             "description": "<p>分页使用当前最大id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选过滤条件 {&quot;user_id&quot;: 3, &quot;start_date&quot;:&quot;2020-10-10&quot;, &quot;end_date&quot;:&quot;2020-11-11&quot;} <br> 参数: <br> user_id: 创建人用户ID <br> start_date: 开始时间 <br> end_date : 结束时间<br></p>"
           }
         ]
       }
@@ -4777,124 +5255,6 @@ define({ "api": [
     },
     "filename": "backend/modules/api/controllers/PCheckController.php",
     "groupTitle": "电脑验机记录"
-  },
-  {
-    "type": "get",
-    "url": "/api/qa-goods-filter/get-manual-testing-filters",
-    "title": "获取人工检测的筛选条件",
-    "version": "1.0.0",
-    "name": "/api/qa-goods-filter/get-manual-testing-filters",
-    "group": "筛选",
-    "description": "<p>获取人工检测的筛选条件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "source",
-            "description": "<p>来源 pc/h5/wx/android/ios</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": [\n    ]\n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/QaGoodsFilterController.php",
-    "groupTitle": "筛选"
-  },
-  {
-    "type": "get",
-    "url": "/api/qa-goods-filter/get-search-filters",
-    "title": "获取查询的筛选条件",
-    "version": "1.0.0",
-    "name": "/api/qa-goods/get-search-filters",
-    "group": "筛选",
-    "description": "<p>获取查询的筛选条件</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "source",
-            "description": "<p>来源 pc/h5/wx/android/ios</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": [\n    ]\n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/QaGoodsFilterController.php",
-    "groupTitle": "筛选"
   },
   {
     "type": "post",
@@ -6234,6 +6594,65 @@ define({ "api": [
     "groupTitle": "进货质检记录"
   },
   {
+    "type": "get",
+    "url": "/api/qa-goods/complex-code",
+    "title": "复码",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/complex-code",
+    "group": "进货质检记录",
+    "description": "<p>复码</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>零件码</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\",\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
     "type": "post",
     "url": "/api/qa-goods/delete-goods",
     "title": "进货质检记录详情删除",
@@ -6471,6 +6890,58 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/qa-goods/get-filters",
+    "title": "获取筛选条件",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/get-filters",
+    "group": "进货质检记录",
+    "description": "<p>获取进货质检筛选条件</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"search\" : {},\n    \"pcheck\" : {},\n    \"goods\" : {},\n},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
     "url": "/api/qa-goods/get-record-list-filter",
     "title": "进货质检记录列表筛选条件",
     "version": "1.0.0",
@@ -6521,6 +6992,138 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": "{\n \"code\": 99999,\n \"data\": {\n     \"users\": [\n      {\n         \"id\": \"1\",\n         \"username\": \"jigang111\",\n         \"mobile\": \"18810236729\",\n         \"avatar\": \"ohJEuk-pGnaakt-yb7dfNS1QTt5RTYVaRYiwpHp-fyEhh4FdTR2ruCv6R40VXUND\",\n         \"store_id\": \"1\",\n         \"role\": \"1\"\n      },\n     ],\n \"suppliers\": []\n },\n \"msg\": \"成功\"",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/qa-goods/goods-detail",
+    "title": "商品设备详情",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/goods-detail",
+    "group": "进货质检记录",
+    "description": "<p>商品设备详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "id",
+            "description": "<p>商品设备ID (goods_id)</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": {},\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
+    "url": "/api/qa-goods/goods-list",
+    "title": "商品设备列表",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/goods-list",
+    "group": "进货质检记录",
+    "description": "<p>商品设备列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": "<p>进货质检记录ID(必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选条件数组</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\n    [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_lock\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ],\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -7784,85 +8387,5 @@ define({ "api": [
     },
     "filename": "backend/modules/api/controllers/QaGoodsController.php",
     "groupTitle": "进货质检记录"
-  },
-  {
-    "type": "get",
-    "url": "/api/qa-goods-filter/goods-list-by-filter",
-    "title": "筛选设备列表",
-    "version": "1.0.0",
-    "name": "/api/qa-goods/device-list-by-filter",
-    "group": "进货质检记录筛选",
-    "description": "<p>筛选设备列表</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "source",
-            "description": "<p>来源 pc/h5/wx/android/ios</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "record_id",
-            "description": "<p>进货质检记录ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "type",
-            "description": "<p>参数说明: 1 查询, 2 电脑验机, 3 进货质检</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "filters",
-            "description": "<p>筛选条件</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": [\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n            {\n                \"user_id\": 1, // 用户ID\n                \"username\": \"萧何君\", // 用户名称\n                \"create_time\": \"2020-10-22 10:10:10\",\n                \"device_cnt\" : 90,\n                \"total_cost\" : 126.50,\n                \"remark\": \"3天需检测完毕\",\n            },\n\n            ...\n    ]\n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/QaGoodsFilterController.php",
-    "groupTitle": "进货质检记录筛选"
   }
 ] });
