@@ -2216,6 +2216,65 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/store/remove-user",
+    "title": "用户移出店铺团队",
+    "version": "1.0.0",
+    "name": "/api/store/remove-user",
+    "group": "店铺",
+    "description": "<p>用户移出店铺团队</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>要移除的用户ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "get",
     "url": "/api/store/trade-details",
     "title": "获取积分交易明细",
     "version": "1.0.0",
@@ -2257,6 +2316,65 @@ define({ "api": [
             "optional": false,
             "field": "20000",
             "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "get",
+    "url": "/api/store/user-addto-admin",
+    "title": "设置为管理员",
+    "version": "1.0.0",
+    "name": "/api/store/user-addto-admin",
+    "group": "店铺",
+    "description": "<p>设置为管理员</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "uid",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
           }
         ]
       }
