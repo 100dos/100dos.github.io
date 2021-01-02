@@ -1660,6 +1660,133 @@
   },
   {
     "type": "post",
+    "url": "/api/manual-testing/get-manual",
+    "title": "获取人工检测编辑数据",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/get-manual",
+    "group": "人工检测",
+    "description": "<p>获取人工检测编辑数据</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "goods_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
+  },
+  {
+    "type": "post",
+    "url": "/api/manual-testing/save-draft",
+    "title": "保存人工检测草稿",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/save-draft",
+    "group": "人工检测",
+    "description": "<p>保存人工检测草稿</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "goods_id",
+            "description": "<p>进货设备ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "resultz",
+            "description": "<p>人工检测JSON数据结果  <br> [{'filter_id':1,,'name_index':'simlock', 'choose':1, 'img':'上传的图片', 'des_tags:'['标签1', '标签2']}, ...]  <br> filter_id 参数: 检测小项ID choose 参数: 0=未检测, 1=正常,  2=有问题 img: 上传的图片 des_tags 参数 : 选择的描述标签</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": true,\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
+  },
+  {
+    "type": "post",
     "url": "/api/manual-testing/save-filter",
     "title": "保存人工检测菜单",
     "version": "1.0.0",
@@ -1920,72 +2047,13 @@
     "groupTitle": "人工检测"
   },
   {
-    "type": "post",
-    "url": "/api/share/new-record",
-    "title": "生成分享查询记录",
-    "version": "1.0.0",
-    "name": "生成分享查询记录",
-    "group": "分享",
-    "description": "<p>分享查询记录</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "stype",
-            "description": "<p>分享类型<br> 1 查询记录 </br> 2 电脑验机记录 </br> 3 进货质检记录 </br> 4 扣钱</br></p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>记录ID (必填)</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"61e5c616cf781e5b423fbf722f900b3c\", // 分享码 \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/ShareController.php",
-    "groupTitle": "分享"
-  },
-  {
     "type": "get",
     "url": "/api/share/get-share-record",
-    "title": "获取分享查询记录",
+    "title": "获取分享记录",
     "version": "1.0.0",
-    "name": "生成分享查询记录",
+    "name": "/api/share/get-share-record",
     "group": "分享",
-    "description": "<p>分享查询记录</p>",
+    "description": "<p>获取分享记录</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -2023,6 +2091,65 @@
         {
           "title": "Response (example):",
           "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ShareController.php",
+    "groupTitle": "分享"
+  },
+  {
+    "type": "post",
+    "url": "/api/share/new-record",
+    "title": "生成分享查询记录",
+    "version": "1.0.0",
+    "name": "/api/share/new-record",
+    "group": "分享",
+    "description": "<p>分享查询记录: 记录页面分享记录只传record_id, 详情页面分享需要传idz(即勾选条目的id)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "stype",
+            "description": "<p>分享类型<br> 1 查询记录 </br> 2 电脑验机记录 </br> 3 进货质检记录 </br> 4 扣钱</br></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSON",
+            "optional": false,
+            "field": "param",
+            "description": "<p>分享参数 查询记录 {&quot;stype&quot;:1, &quot;param&quot;:[{&quot;record_id&quot;:1, &quot;idz&quot;:[1,2,3]}]} 其中idz 为详情id 电脑验机记录 {&quot;stype&quot;:2, &quot;param&quot;:[{&quot;record_id&quot;:1, &quot;idz&quot;:[1,2,3]}]} 其中 idz 为设备id 进货质检记录 {&quot;stype&quot;:3, &quot;param&quot;:[{&quot;record_id&quot;:1, &quot;idz&quot;:[1,2,3]}]} 其中 idz 为进货设备id</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"61e5c616cf781e5b423fbf722f900b3c\", // 分享码 \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -2245,6 +2372,79 @@
             "optional": false,
             "field": "uid",
             "description": "<p>要移除的用户ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "post",
+    "url": "/api/store/save-printer",
+    "title": "保存打印机配置",
+    "version": "1.0.0",
+    "name": "/api/store/save-printer",
+    "group": "店铺",
+    "description": "<p>保存打印机配置</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 (h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>打印机设备平台 xprinter/poscom</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_id",
+            "description": "<p>打印机设备Id</p>"
           }
         ]
       }
@@ -2899,7 +3099,7 @@
     "groupTitle": "扣钱"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "/api/pricing/goods-to-return",
     "title": "转到退货",
     "version": "1.0.0",
@@ -3116,6 +3316,65 @@
     },
     "filename": "backend/modules/api/controllers/PricingController.php",
     "groupTitle": "扣钱"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/batch-search-detail",
+    "title": "批量搜索查询记录详情",
+    "version": "1.0.0",
+    "name": "/api/search/batch-search-detail",
+    "group": "查询",
+    "description": "<p>批量搜索查询记录详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
   },
   {
     "type": "get",
@@ -4291,6 +4550,65 @@
     },
     "filename": "backend/modules/api/controllers/PricingForTouristsController.php",
     "groupTitle": "游客扣钱"
+  },
+  {
+    "type": "post",
+    "url": "/api/pcheck/batch-search-detail",
+    "title": "批量搜索电脑验机详情",
+    "version": "1.0.0",
+    "name": "/api/pcheck/batch-search-detail",
+    "group": "电脑验机记录",
+    "description": "<p>批量搜索电脑验机详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "groupTitle": "电脑验机记录"
   },
   {
     "type": "post",
@@ -6712,6 +7030,72 @@
     "groupTitle": "进货质检记录"
   },
   {
+    "type": "post",
+    "url": "/api/qa-goods/batch-search-goods-record",
+    "title": "批量搜索进货质检记录详情(进货质检记录详情页内)",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/batch-search-goods-record",
+    "group": "进货质检记录",
+    "description": "<p>批量搜索进货质检记录详情(进货质检记录详情页内)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
     "type": "get",
     "url": "/api/qa-goods/complex-code",
     "title": "复码",
@@ -6904,10 +7288,10 @@
   },
   {
     "type": "get",
-    "url": "/api/qa-goods/download-detail",
+    "url": "/api/qa-goods/download-goods",
     "title": "进货质检记录详情下载（下载文件内容同进货质检记录）",
     "version": "1.0.0",
-    "name": "/api/qa-goods/download-detail",
+    "name": "/api/qa-goods/download-goods",
     "group": "进货质检记录",
     "description": "<p>进货质检记录详情下载（下载文件内容同进货质检记录）</p>",
     "parameter": {
@@ -7059,6 +7443,65 @@
     "groupTitle": "进货质检记录"
   },
   {
+    "type": "post",
+    "url": "/api/qa-goods/get-purcharse-country-diff",
+    "title": "获取国别不一致弹窗",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/get-purcharse-country-diff",
+    "group": "进货质检记录",
+    "description": "<p>批量搜索进货质检记录详情(进货质检记录详情页内)</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "goods_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
     "type": "get",
     "url": "/api/qa-goods/get-record-list-filter",
     "title": "进货质检记录列表筛选条件",
@@ -7110,6 +7553,65 @@
         {
           "title": "Response (example):",
           "content": "{\n \"code\": 99999,\n \"data\": {\n     \"users\": [\n      {\n         \"id\": \"1\",\n         \"username\": \"jigang111\",\n         \"mobile\": \"18810236729\",\n         \"avatar\": \"ohJEuk-pGnaakt-yb7dfNS1QTt5RTYVaRYiwpHp-fyEhh4FdTR2ruCv6R40VXUND\",\n         \"store_id\": \"1\",\n         \"role\": \"1\"\n      },\n     ],\n \"suppliers\": []\n },\n \"msg\": \"成功\"",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "get",
+    "url": "/api/qa-goods/goods-by-id",
+    "title": "根据扫描二维码的id获取商品设备",
+    "version": "1.0.0",
+    "name": "/api/qa-goods/goods-by-id",
+    "group": "进货质检记录",
+    "description": "<p>根据扫描二维码的id获取商品设备</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n},\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -8362,6 +8864,65 @@
   },
   {
     "type": "post",
+    "url": "/api/qa-goods/batch-search-goods",
+    "title": "批量搜索进货质检记录详情",
+    "version": "1.0.0",
+    "name": "/api/search/batch-search-goods",
+    "group": "进货质检记录",
+    "description": "<p>批量搜索进货质检记录详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/QaGoodsController.php",
+    "groupTitle": "进货质检记录"
+  },
+  {
+    "type": "post",
     "url": "/api/qa-goods/query-3023-data",
     "title": "查询3023数据",
     "version": "1.0.0",
@@ -8477,7 +9038,7 @@
             "type": "Array",
             "optional": false,
             "field": "filters",
-            "description": "<p>筛选条件数组 <br> {&quot;stxt&quot;:&quot;模糊搜索内容&quot;, 'mt': 1, &quot;user_id&quot;: 3, &quot;supplier_id&quot;:1, &quot;start_date&quot;:&quot;2020-10-10&quot;, &quot;end_date&quot;:&quot;2020-11-11&quot;, &quot;other&quot;:1} <br> 参数: <br> stxt: 模糊搜索内容 <br> mt: 人工检测 1 已完成， 0未完成 <br> user_id: 创建人用户ID <br> supplier_id: 供货商ID <br> start_date: 开始时间 <br> end_date : 结束时间<br> other: 状态: 1 待审核 2 待议价 3 待扣钱 4 未锁定进货单 5 尚未完成进货<br></p>"
+            "description": "<p>筛选条件数组 <br> {&quot;stxt&quot;:&quot;模糊搜索内容&quot;, 'mt': 1, &quot;user_id&quot;: 3, &quot;supplier_id&quot;:1, &quot;start_date&quot;:&quot;2020-10-10&quot;, &quot;end_date&quot;:&quot;2020-11-11&quot;} <br> 参数: <br> stxt: 模糊搜索内容 <br> mt: 人工检测 1 已完成， 0未完成 <br> user_id: 创建人用户ID <br> supplier_id: 供货商ID <br> start_date: 开始时间 <br> end_date : 结束时间<br> manual: 人工检测<br> pricing: 扣钱进度<br> bargained: 议价进度<br> expenses_status: 审核情况<br></p>"
           }
         ]
       }
