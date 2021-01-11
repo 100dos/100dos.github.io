@@ -4843,79 +4843,6 @@ define({ "api": [
     "groupTitle": "店铺好友"
   },
   {
-    "type": "get",
-    "url": "/api/my-store/store-list",
-    "title": "获取我的店铺页面-店铺列表",
-    "version": "1.0.0",
-    "name": "/api/my-store/store-list",
-    "group": "店铺管理",
-    "description": "<p>获取我的店铺页面-店铺列表</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "Json",
-            "optional": false,
-            "field": "filters",
-            "description": "<p>筛选参数 <br> device 设备类型 <br> model 机型 <br> price_min 价格区间 最小 <br> price_max 价格区间 最大 <br></p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "from_id",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "JSON",
-            "optional": false,
-            "field": "sortz",
-            "description": "<br> price 价格排序 0 默认排序 1 价格由高到低 2 价格由低到高 <br> create_time 库龄排序 0 默认 1 库龄由高到低 2 库龄由低到高 <br>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/MyStoreController.php",
-    "groupTitle": "店铺管理"
-  },
-  {
     "type": "post",
     "url": "/api/store-manage/batch-off-sell",
     "title": "批量下架",
@@ -5262,6 +5189,79 @@ define({ "api": [
             "optional": false,
             "field": "token",
             "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/MyStoreController.php",
+    "groupTitle": "我的店铺"
+  },
+  {
+    "type": "get",
+    "url": "/api/my-store/store-list",
+    "title": "获取我的店铺页面-店铺列表",
+    "version": "1.0.0",
+    "name": "/api/my-store/store-list",
+    "group": "我的店铺",
+    "description": "<p>获取我的店铺页面-店铺列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选参数 <br> device 设备类型 <br> model 机型 <br> price_min 价格区间 最小 <br> price_max 价格区间 最大 <br></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "from_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "JSON",
+            "optional": false,
+            "field": "sortz",
+            "description": "<br> price 价格排序 0 默认排序 1 价格由高到低 2 价格由低到高 <br> create_time 库龄排序 0 默认 1 库龄由高到低 2 库龄由低到高 <br>"
           }
         ]
       }
