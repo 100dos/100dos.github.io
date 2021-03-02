@@ -1207,6 +1207,13 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>分页</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "JSON",
             "optional": false,
             "field": "sortz",
@@ -6908,6 +6915,79 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/agent/my-agent-goods-list",
+    "title": "所有代理店铺的商品列表",
+    "version": "1.0.0",
+    "name": "/api/agent/my-agent-goods-list",
+    "group": "店铺代理",
+    "description": "<p>所有代理店铺的商品列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选参数 <br> device 设备类型 <br> model 机型 <br> price_min 价格区间 最小 <br> price_max 价格区间 最大 <br></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "JSON",
+            "optional": false,
+            "field": "sortz",
+            "description": "<br> price 价格排序 0 默认排序 1 价格由高到低 2 价格由低到高 <br> age 库龄排序 0 默认 1 库龄由高到低 2 库龄由低到高 <br>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/AgentController.php",
+    "groupTitle": "店铺代理"
+  },
+  {
+    "type": "post",
     "url": "/api/agent/my-agent-list",
     "title": "我的代理列表",
     "version": "1.0.0",
@@ -6958,6 +7038,79 @@ define({ "api": [
         {
           "title": "Response (example):",
           "content": " {\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/AgentController.php",
+    "groupTitle": "店铺代理"
+  },
+  {
+    "type": "post",
+    "url": "/api/agent/my-by-agent-goods-list",
+    "title": "所有上家店铺的商品列表",
+    "version": "1.0.0",
+    "name": "/api/agent/my-by-agent-goods-list",
+    "group": "店铺代理",
+    "description": "<p>所有上家店铺的商品列表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "filters",
+            "description": "<p>筛选参数 <br> device 设备类型 <br> model 机型 <br> price_min 价格区间 最小 <br> price_max 价格区间 最大 <br></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>分页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSON",
+            "optional": false,
+            "field": "sortz",
+            "description": "<br> price 价格排序 0 默认排序 1 价格由高到低 2 价格由低到高 <br> age 库龄排序 0 默认 1 库龄由高到低 2 库龄由低到高 <br>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -9377,8 +9530,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "Number",
             "optional": false,
-            "field": "from_id",
-            "description": ""
+            "field": "page",
+            "description": "<p>分页 默认1，为第一页</p>"
           },
           {
             "group": "Parameter",
@@ -9554,7 +9707,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "Number",
             "optional": false,
-            "field": "from_id",
+            "field": "page",
             "description": ""
           },
           {
