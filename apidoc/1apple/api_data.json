@@ -700,10 +700,10 @@
           },
           {
             "group": "Parameter",
-            "type": "Array",
+            "type": "Json",
             "optional": false,
-            "field": "goods_idz",
-            "description": "<p>商品id</p>"
+            "field": "data",
+            "description": ""
           }
         ]
       }
@@ -770,6 +770,13 @@
             "optional": false,
             "field": "address_id",
             "description": "<p>地址Id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "messgae",
+            "description": "<p>给卖家留言</p>"
           },
           {
             "group": "Parameter",
@@ -3262,6 +3269,131 @@
   },
   {
     "type": "get",
+    "url": "/store/goods/report-detail",
+    "title": "验机报告详情",
+    "version": "1.0.0",
+    "name": "/store/goods/report-detail",
+    "group": "店铺-商品",
+    "description": "<p>验机报告详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "goods_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/store/controllers/GoodsController.php",
+    "groupTitle": "店铺-商品"
+  },
+  {
+    "type": "get",
+    "url": "/store/goods/shopping-cart-count",
+    "title": "购物车logo显示",
+    "version": "1.0.0",
+    "name": "/store/goods/shopping-cart-count",
+    "group": "店铺-商品",
+    "description": "<p>购物车logo显示</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/store/controllers/GoodsController.php",
+    "groupTitle": "店铺-商品"
+  },
+  {
+    "type": "get",
     "url": "/store/my-buy/all-list",
     "title": "全部列表",
     "version": "1.0.0",
@@ -3635,6 +3767,159 @@
             "optional": false,
             "field": "order_id",
             "description": "<p>订单id</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/store/controllers/MyBuyController.php",
+    "groupTitle": "店铺-我买入的"
+  },
+  {
+    "type": "post",
+    "url": "/store/my-buy/save-marker",
+    "title": "保存标记",
+    "version": "1.0.0",
+    "name": "/store/my-buy/save-marker",
+    "group": "店铺-我买入的",
+    "description": "<p>保存标记</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "order_id",
+            "description": "<p>订单id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "marker",
+            "description": "<p>标记内容</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "marker_level",
+            "description": "<p>标记等级</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/store/controllers/MyBuyController.php",
+    "groupTitle": "店铺-我买入的"
+  },
+  {
+    "type": "post",
+    "url": "/store/my-buy/save-message",
+    "title": "保存给卖家留言",
+    "version": "1.0.0",
+    "name": "/store/my-buy/save-message",
+    "group": "店铺-我买入的",
+    "description": "<p>保存给卖家留言</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "order_id",
+            "description": "<p>订单id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "messege",
+            "description": "<p>留言内容</p>"
           }
         ]
       }
@@ -4469,7 +4754,7 @@
   },
   {
     "type": "post",
-    "url": "/store/my-sell/print",
+    "url": "/store/my-sell/print-order",
     "title": "打印订单",
     "version": "1.0.0",
     "name": "/store/my-sell/print-order",
@@ -5643,6 +5928,65 @@
             "optional": false,
             "field": "20000",
             "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "get",
+    "url": "/api/store/get-store-info",
+    "title": "获取店铺基本信息",
+    "version": "1.0.0",
+    "name": "/api/store/get-store-info",
+    "group": "店铺",
+    "description": "<p>获取店铺基本信息</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 (h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
           }
         ]
       }
@@ -7662,6 +8006,72 @@
   },
   {
     "type": "post",
+    "url": "/api/friend/create-order-directly",
+    "title": "直接下单(好友列表)",
+    "version": "1.0.0",
+    "name": "/api/friend/create-order-directly",
+    "group": "店铺好友",
+    "description": "<p>直接下单购买</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "address_id",
+            "description": "<p>地址Id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Json",
+            "optional": false,
+            "field": "data",
+            "description": "<p>如下 { &quot;address_id&quot;:4, &quot;data&quot;:[ {&quot;sell_store_id&quot;:2, &quot;goods_list&quot;:[{&quot;goods_id&quot;:3, &quot;report_price&quot;:1000}], &quot;message&quot;:&quot;msg22223333&quot;}, {&quot;sell_store_id&quot;:3, &quot;goods_list&quot;:[{&quot;goods_id&quot;:12, &quot;report_price&quot;:2000}], &quot;message&quot;:&quot;msg121212&quot;} ] }</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/FriendController.php",
+    "groupTitle": "店铺好友"
+  },
+  {
+    "type": "post",
     "url": "/api/friend/delete-friend",
     "title": "删除好友",
     "version": "1.0.0",
@@ -7719,6 +8129,65 @@
         {
           "title": "Response (example):",
           "content": " {\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/FriendController.php",
+    "groupTitle": "店铺好友"
+  },
+  {
+    "type": "post",
+    "url": "/api/friend/filling-order",
+    "title": "填写订单(直接下单)",
+    "version": "1.0.0",
+    "name": "/api/friend/filling-order",
+    "group": "店铺好友",
+    "description": "<p>填写订单, 直接下单,</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "goods_idz",
+            "description": "<p>商品id</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -8842,6 +9311,65 @@
     "groupTitle": "店铺管理"
   },
   {
+    "type": "get",
+    "url": "/api/store-manage/sales-report",
+    "title": "销售报表",
+    "version": "1.0.0",
+    "name": "/api/store-manage/sales-report",
+    "group": "店铺管理",
+    "description": "<p>销售报表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "month",
+            "description": "<p>如 2021-02 或2021-10，如果不传默认去当前月份</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreManageController.php",
+    "groupTitle": "店铺管理"
+  },
+  {
     "type": "post",
     "url": "/api/store-manage/save-standard-price",
     "title": "修改价格",
@@ -8891,6 +9419,65 @@
             "optional": false,
             "field": "20000",
             "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreManageController.php",
+    "groupTitle": "店铺管理"
+  },
+  {
+    "type": "get",
+    "url": "/api/store-manage/search-sales-report",
+    "title": "查询销售报表",
+    "version": "1.0.0",
+    "name": "/api/store-manage/search-sales-report",
+    "group": "店铺管理",
+    "description": "<p>查询销售报表</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "s",
+            "description": "<p>模糊查询内容</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
           }
         ]
       }
@@ -9398,7 +9985,7 @@
             "group": "Parameter",
             "type": "Number",
             "optional": false,
-            "field": "order_no",
+            "field": "order_id",
             "description": ""
           },
           {
@@ -9539,6 +10126,58 @@
             "optional": false,
             "field": "sortz",
             "description": "<br> price 价格排序 0 默认排序 1 价格由高到低 2 价格由低到高 <br> age 库龄排序 0 默认 1 库龄由高到低 2 库龄由低到高 <br>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/MyStoreController.php",
+    "groupTitle": "我的店铺"
+  },
+  {
+    "type": "post",
+    "url": "/api/my-store/get-status",
+    "title": "获取我的店铺消息状态",
+    "version": "1.0.0",
+    "name": "/api/my-store/get-status",
+    "group": "我的店铺",
+    "description": "<p>获取我的店铺消息状态</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
           }
         ]
       }
@@ -12575,6 +13214,20 @@
           },
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "report_img",
+            "description": "<p>验机报告PNG上传图片地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_img",
+            "description": "<p>设备详情PNG上传图片地址</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Intger",
             "optional": false,
             "field": "prid",
@@ -12673,6 +13326,20 @@
           },
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "report_img",
+            "description": "<p>验机报告PNG上传图片地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_img",
+            "description": "<p>设备详情PNG上传图片地址</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Intger",
             "optional": false,
             "field": "prid",
@@ -12768,6 +13435,20 @@
             "optional": false,
             "field": "device",
             "description": "<p>上传的沙漏设备详情文件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "report_img",
+            "description": "<p>验机报告PNG上传图片地址</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_img",
+            "description": "<p>设备详情PNG上传图片地址</p>"
           },
           {
             "group": "Parameter",
