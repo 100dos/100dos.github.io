@@ -2443,6 +2443,13 @@
             "optional": false,
             "field": "version",
             "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>授权url(选传)</p>"
           }
         ]
       }
@@ -2534,6 +2541,53 @@
     },
     "filename": "backend/modules/api/controllers/WechatController.php",
     "groupTitle": "Wechat"
+  },
+  {
+    "type": "post",
+    "url": "/api/manual-testing/all-tear-detection-destags",
+    "title": "获取所有拆机检测菜单的描述标签",
+    "version": "1.0.0",
+    "name": "/api/manual-testing/all-tear-detection-destags",
+    "group": "人工检测",
+    "description": "<p>获取拆机检测菜单</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": [],\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/ManualTestingController.php",
+    "groupTitle": "人工检测"
   },
   {
     "type": "post",
@@ -9061,6 +9115,86 @@
     "groupTitle": "店铺管理"
   },
   {
+    "type": "post",
+    "url": "/api/store-manage/batch-search-goods",
+    "title": "批量搜索",
+    "version": "1.0.0",
+    "name": "/api/store-manage/batch-search-goods",
+    "group": "店铺管理",
+    "description": "<p>批量搜索</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 pc/h5/wx/android/ios</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型: 0 上架商品列表  1 下架商品列表</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "agent",
+            "description": "<p>是否代理商品: 0 我的商品   1 代理商品</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "JSON",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>SN序列号, 如 {&quot;snz&quot;:[&quot;354858096464824&quot;,&quot;357266090232311&quot;]}</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": true,\n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreManageController.php",
+    "groupTitle": "店铺管理"
+  },
+  {
     "type": "get",
     "url": "/api/store-manage/my-goods-off-sell",
     "title": "下架我的商品列表",
@@ -11271,6 +11405,65 @@
   },
   {
     "type": "post",
+    "url": "/api/pricing/save-standard-price",
+    "title": "保存标准价",
+    "version": "1.0.0",
+    "name": "/api/pricing/save-standard-price",
+    "group": "扣钱",
+    "description": "<p>保存标准价</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "price",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/PricingController.php",
+    "groupTitle": "扣钱"
+  },
+  {
+    "type": "post",
     "url": "/api/search/batch-search-detail",
     "title": "批量搜索查询记录详情",
     "version": "1.0.0",
@@ -12552,7 +12745,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12611,7 +12804,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12670,7 +12863,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12729,7 +12922,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12795,7 +12988,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12847,7 +13040,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12899,7 +13092,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -12958,7 +13151,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13031,7 +13224,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13090,7 +13283,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13163,7 +13356,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13275,7 +13468,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13387,7 +13580,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13499,7 +13692,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13551,7 +13744,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13610,7 +13803,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
@@ -13676,7 +13869,7 @@
         }
       ]
     },
-    "filename": "backend/modules/api/controllers/PCheckController.php",
+    "filename": "backend/modules/api/controllers/PcheckController.php",
     "groupTitle": "电脑验机记录"
   },
   {
