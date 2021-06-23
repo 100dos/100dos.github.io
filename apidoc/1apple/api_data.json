@@ -177,6 +177,58 @@
     "groupTitle": "COMMON"
   },
   {
+    "type": "get",
+    "url": "/api/common/get-printer-status",
+    "title": "获取打印机状态",
+    "version": "1.0.0",
+    "name": "/api/common/get-printer-status",
+    "group": "COMMON",
+    "description": "<p>获取打印机状态</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"[]\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/CommonController.php",
+    "groupTitle": "COMMON"
+  },
+  {
     "type": "post",
     "url": "/api/common/identify-txt",
     "title": "识别文字中的IMEI",
@@ -5712,7 +5764,7 @@
             "type": "String",
             "optional": false,
             "field": "type",
-            "description": "<p>打印机设备平台 xprinter/poscom</p>"
+            "description": "<p>打印机设备平台 xprinter/poscom/xpyun</p>"
           },
           {
             "group": "Parameter",
@@ -5930,6 +5982,138 @@
             "optional": false,
             "field": "20000",
             "description": "<p>创建订单失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "post",
+    "url": "/api/store/del-printer",
+    "title": "删除打印机",
+    "version": "1.0.0",
+    "name": "/api/store/del-printer",
+    "group": "店铺",
+    "description": "<p>保存修改打印机</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源 (h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "printer_id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/StoreController.php",
+    "groupTitle": "店铺"
+  },
+  {
+    "type": "get",
+    "url": "/api/store/download-trade-details",
+    "title": "下载积分交易明细",
+    "version": "1.0.0",
+    "name": "/api/store/download-trade-details",
+    "group": "店铺",
+    "description": "<p>下载积分交易明细</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "from_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "order",
+            "description": "<p>排序规则 默认 0 实际查询时间排序 1 查询记录的日期时间排序</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
           }
         ]
       }
@@ -6849,6 +7033,13 @@
             "optional": false,
             "field": "from_id",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "order",
+            "description": "<p>排序规则 默认 0 实际查询时间排序 1 查询记录的日期时间排序</p>"
           }
         ]
       }
@@ -6869,7 +7060,7 @@
       "examples": [
         {
           "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", de-detailstrade-details\n\"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -6988,7 +7179,7 @@
     "version": "1.0.0",
     "name": "/api/agent/agent-setting",
     "group": "店铺代理",
-    "description": "<p>获取代理设置页面数据 !!!!该接口不需要，可以直接从好友设置页面获取数据</p>",
+    "description": "<p>获取代理设置页面数据</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -7017,7 +7208,7 @@
             "group": "Parameter",
             "type": "Number",
             "optional": false,
-            "field": "agent_id",
+            "field": "agent_store_id",
             "description": ""
           }
         ]
@@ -7039,7 +7230,7 @@
       "examples": [
         {
           "title": "Response (example):",
-          "content": " {\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
+          "content": "{\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -7964,6 +8155,79 @@
         {
           "title": "Response (example):",
           "content": " {\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/AgentController.php",
+    "groupTitle": "店铺代理"
+  },
+  {
+    "type": "get",
+    "url": "/api/agent/save-agent-price",
+    "title": "保存代理添加价格",
+    "version": "1.0.0",
+    "name": "/api/agent/save-agent-price",
+    "group": "店铺代理",
+    "description": "<p>保存代理添加价格</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "source",
+            "description": "<p>来源(h5/pc)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "agent_id",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "add_price",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20001",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n \"code\": 99999,\n     \"data\": {\n},\n    \"msg\": \"成功\"\n}",
           "type": "json"
         }
       ]
@@ -11523,6 +11787,65 @@
   },
   {
     "type": "get",
+    "url": "/api/search/download-batch-search-detail",
+    "title": "下载批量搜索查询记录详情",
+    "version": "1.0.0",
+    "name": "/api/search/download-batch-search-detail",
+    "group": "查询",
+    "description": "<p>下载批量搜索查询记录详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI 用逗号分割</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "get",
     "url": "/api/search/download-detail",
     "title": "查询记录详情下载（下载文件内容同查询记录）",
     "version": "1.0.0",
@@ -11708,6 +12031,13 @@
             "optional": false,
             "field": "sdidz",
             "description": "<p>查询设备详情ID 数组(必填)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pid",
+            "description": "<p>打印机ID</p>"
           }
         ]
       }
@@ -11720,6 +12050,65 @@
             "optional": false,
             "field": "20000",
             "description": "<p>打印失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/print-batch-search-detail",
+    "title": "打印批量搜索查询记录详情",
+    "version": "1.0.0",
+    "name": "/api/search/print-batch-search-detail",
+    "group": "查询",
+    "description": "<p>打印批量搜索查询记录详情</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>多个SN/IMEI</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>failed</p>"
           }
         ]
       }
@@ -12205,7 +12594,153 @@
             "type": "Array",
             "optional": false,
             "field": "typez",
-            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;], type类型如下: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
+            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;], type类型如下: </br> details 验机报告(普通版) </br> details-flagship 验机报告(旗舰版) </br> details-pro 验机报告(专业版) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转 </br> blacklist 网络锁黑白 </br></p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/new-query-3023-data",
+    "title": "新增查询3023数据",
+    "version": "1.0.0",
+    "name": "查询3023数据",
+    "group": "查询",
+    "description": "<p>新增查询3023数据</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "snz",
+            "description": "<p>一个或多个SN 数组(POST JSON), 如[&quot;354858096464824&quot;, &quot;353902109051953&quot;]</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "typez",
+            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;], type类型如下: </br> details 验机报告(普通版) </br> details-flagship 验机报告(旗舰版) </br> details-pro 验机报告(专业版) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转 </br> blacklist 网络锁黑白 </br></p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": "<p>查询记录ID： 查询失败再次查询使用或新增查询时使用</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
+    "url": "/api/search/re-query-3023-data",
+    "title": "重新查询3023数据",
+    "version": "1.0.0",
+    "name": "查询3023数据",
+    "group": "查询",
+    "description": "<p>查询3023数据</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "record_id",
+            "description": "<p>查询记录ID： 查询失败再次查询使用(可选)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "detail_idz",
+            "description": "<p>查询详情ID： 重新查询使用 (可选)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "typez",
+            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;]。必须跟&quot;查询详情ID&quot;配合使用</p>"
           }
         ]
       }
@@ -13126,6 +13661,13 @@
             "optional": false,
             "field": "remark",
             "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Intger",
+            "optional": false,
+            "field": "count",
+            "description": "<p>本批次总数量</p>"
           }
         ]
       }
@@ -13631,6 +14173,13 @@
           },
           {
             "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "battery",
+            "description": "<p>上传的沙漏电池详情文件</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "report_img",
@@ -13778,6 +14327,13 @@
             "optional": false,
             "field": "pcds",
             "description": "<p>电脑验机设备ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pid",
+            "description": "<p>打印机ID</p>"
           }
         ]
       }
@@ -16827,6 +17383,13 @@
             "optional": false,
             "field": "idz",
             "description": "<p>商品设备ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pid",
+            "description": "<p>打印机ID</p>"
           }
         ]
       }
