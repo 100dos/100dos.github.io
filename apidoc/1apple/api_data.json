@@ -14334,6 +14334,13 @@
             "optional": false,
             "field": "pid",
             "description": "<p>打印机ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "copy",
+            "description": "<p>打印份数,默认1份</p>"
           }
         ]
       }
