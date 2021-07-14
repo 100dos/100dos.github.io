@@ -12618,6 +12618,72 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/search/query-batch-search-data",
+    "title": "批量搜索查询3023数据",
+    "version": "1.0.0",
+    "name": "批量搜索查询3023数据",
+    "group": "查询",
+    "description": "<p>查询3023数据</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "version",
+            "description": "<p>版本号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "merged_idz",
+            "description": "<p>一个或多个merged_id数组(POST JSON), 如[&quot;1&quot;, &quot;2&quot;]</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "typez",
+            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;], type类型如下: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "20000",
+            "description": "<p>查询失败</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "backend/modules/api/controllers/SearchController.php",
+    "groupTitle": "查询"
+  },
+  {
+    "type": "post",
     "url": "/api/search/query-3023-data",
     "title": "查询3023数据",
     "version": "1.0.0",
@@ -12800,72 +12866,6 @@ define({ "api": [
             "optional": false,
             "field": "typez",
             "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;]。必须跟&quot;查询详情ID&quot;配合使用</p>"
-          }
-        ]
-      }
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "20000",
-            "description": "<p>查询失败</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Response (example):",
-          "content": "{\n\"code\": 99999,\n\"data\": \"{\n    \"user_id\": 1, // 用户ID\n    \"username\": \"萧何君\", // 用户名称\n    \"avatar\": \"http://img-host.com/aratar.jpg\", // 用户头像\n    \"create_time\": \"2020-10-22 10:10:10\",\n    \"device_cnt\" : 90,\n    \"remark\": \"3天需检测完毕\",\n    \"list\": [\n        {\n            \"no\": 1, //序号\n            \"sn\": \"\"353248104625320,\n            \"id_locked\": true, // ID 锁\n            \"device_model\": \"IPhone XR\"  // 设备型号\n            \"color\": \"Gold\", // 颜色\n            \"capacity\": \"256G\", // 内存容量\n            ...\n        },\n        ...\n    ]\n}\", \n\"msg\": \"成功\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "backend/modules/api/controllers/SearchController.php",
-    "groupTitle": "查询"
-  },
-  {
-    "type": "post",
-    "url": "/api/search/query-batch-search-data",
-    "title": "批量搜索查询3023数据",
-    "version": "1.0.0",
-    "name": "查询3023数据",
-    "group": "查询",
-    "description": "<p>查询3023数据</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "version",
-            "description": "<p>版本号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "merged_idz",
-            "description": "<p>一个或多个merged_id数组(POST JSON), 如[&quot;1&quot;, &quot;2&quot;]</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "typez",
-            "description": "<p>查询类型数组(POST JSON), 如[&quot;serial&quot;, &quot;carrier&quot;], type类型如下: </br> details 整机报告(全面) </br> advanced(整机报告(较全面) </br> coverage-refurbished 官方保修 </br> activationlock ID锁 </br> simlock 网络锁 </br> country 销售国家 </br> carrier 运营商 </br> icloud ID锁黑白 </br> sold 销售人 </br> purchase 购买日期 </br> repair 正在维修 </br> serial IMEI/SN 互转</p>"
           }
         ]
       }
