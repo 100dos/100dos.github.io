@@ -1,0 +1,48 @@
+---
+title: 选择我们更专业、更懂你
+description: 因为我们致力于互联网及信息服务行业创造价值，真正实现企业互联网信息智能化，提高企业在网络科技时代的市场竞争力。
+---
+
+<div class="content">
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>软件开发</h2>
+				<p>APP开发、微信小程序开发、公众号开发、网站开发。</p>
+			</div>
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/develop.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>开发流程</h2>
+				<p>需求评审&rarr;方案规划&rarr;项目立项&rarr;UI设计&rarr;程序开发&rarr;测试&rarr;验收上线&rarr;后期维护</p>
+			</div>
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/development-process.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
+
+    <section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>客户案例</h2>
+				<p>很荣幸的为你们提供服务，客户满意度会是我们永恒的追求。</p>
+                <p class="editable"><a href="{{ site.baseurl }}/client/">查看全部&rarr;</a></p>
+			</div>
+            <div class="image">
+                <ul class="image-grid">
+                    {% for client in site.clients limit: 4 %}
+                    <li><a href="{{ site.baseurl }}{{ client.url }}"><img src="{% include relative-src.html src=client.image_path %}"></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+		</div>
+	</section>
+
+

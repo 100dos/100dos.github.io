@@ -1,0 +1,21 @@
+- links:
+  - name: 服务
+    link: /service/
+  - name: 产品
+    link: /product/
+  - name: 客户案例
+    link: /client/
+- links:
+  - name: 微博
+    link: https://weibo.com/100dos/
+    new_window: true
+    social_icon: Weibo
+  - name: Github
+    link: https://github.com/100dos/
+    new_window: true
+    social_icon: Github
+
+  - name: RSS
+    link: /feed.xml
+    social_icon: RSS
+    new_window: false
