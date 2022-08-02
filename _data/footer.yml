@@ -5,6 +5,9 @@
     link: /product/
   - name: 客户案例
     link: /client/
+  - name: CRM客户管理系统
+    link: /product-crm-system/
+
 - links:
   - name: 微博
     link: https://weibo.com/100dos/
