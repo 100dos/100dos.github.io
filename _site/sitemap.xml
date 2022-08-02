@@ -2,19 +2,19 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://www.100dos.com/clients/Sparticle%E5%AE%98%E7%BD%91/</loc>
-<lastmod>2022-07-29T12:55:31+00:00</lastmod>
+<lastmod>2022-07-30T01:13:28+00:00</lastmod>
 </url>
 <url>
 <loc>https://www.100dos.com/clients/%E4%B8%80%E6%9E%9C%E9%AA%8C%E6%9C%BA/</loc>
-<lastmod>2022-07-29T12:55:31+00:00</lastmod>
+<lastmod>2022-07-30T01:13:28+00:00</lastmod>
 </url>
 <url>
 <loc>https://www.100dos.com/clients/%E5%87%A4%E8%88%9EAPP/</loc>
-<lastmod>2022-07-29T12:55:31+00:00</lastmod>
+<lastmod>2022-07-30T01:13:28+00:00</lastmod>
 </url>
 <url>
 <loc>https://www.100dos.com/clients/%E6%B2%B3%E5%8D%97%E5%8C%BB%E4%BF%9D%E6%8A%A5%E9%94%80%E7%B3%BB%E7%BB%9F/</loc>
-<lastmod>2022-07-29T12:55:31+00:00</lastmod>
+<lastmod>2022-07-30T01:13:28+00:00</lastmod>
 </url>
 <url>
 <loc>https://www.100dos.com/sales/2020/07/20/the-process-for-direct-sales/</loc>
@@ -74,5 +74,9 @@
 </url>
 <url>
 <loc>https://www.100dos.com/category/marketing/</loc>
+</url>
+<url>
+<loc>https://www.100dos.com/apidoc/1apple/</loc>
+<lastmod>2021-07-19T05:19:05+00:00</lastmod>
 </url>
 </urlset>
