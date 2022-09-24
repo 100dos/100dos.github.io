@@ -6,6 +6,13 @@
   link: /product/
   new_window: false
   highlight: false
+  sublinks:
+    - name: CRM 客户管理系统
+      link: /product-crm-system/
+      new_window: true
+    - name: 商城系统
+      link: /product-shopping-system/
+      new_window: true
 - name: 客户案例
   link: /client/
   new_window: false

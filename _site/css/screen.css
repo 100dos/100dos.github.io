@@ -253,7 +253,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 
 @media (min-width: 620px) { .nav-open nav { border: 0; padding: 0 20px; } .nav-open nav a { display: inline; } }
 
-nav { text-transform: uppercase; font-size: .8em; width: 100%; }
+nav { text-transform: uppercase; font-size: .8em; width: 100%; /* 导航下拉菜单*/ }
 
 @media (min-width: 620px) { nav { text-align: right; position: absolute; top: 13px; right: 0; padding: 0 20px; } }
 
@@ -272,6 +272,18 @@ nav a:hover { border-bottom: 1px solid rgba(255, 255, 255, 0.3); color: #fff; }
 @media (min-width: 620px) { nav a.highlight { border: 1px #ccc solid; border-radius: 5px; } nav a.highlight:hover { background: #fff; color: #4182e4; } }
 
 nav a.active { color: #fff; }
+
+nav .dropdown { position: relative; display: inline-block; }
+
+nav .dropdown-menu { display: none; position: absolute; background-clip: padding-box; background-color: #fff; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 0.25rem; color: #212529; display: none; float: left; left: 0; list-style: none; margin: 0.125rem 0 0; min-width: 10rem; padding: 5px; text-align: left; top: 100%; z-index: 1000; }
+
+nav .dropdown-menu a { background-color: #fff; border-radius: 0.25rem; box-shadow: none; color: #515151; display: block; text-shadow: none; }
+
+nav .dropdown-menu a:hover { background-color: #ddd; }
+
+nav .dropdown:hover .dropdown-menu { display: block; }
+
+nav .dropdown:hover .dropbtn { color: #ffffff !important; border-bottom: 2px solid #ffffff !important; }
 
 .footer-links { width: 100%; margin: 10px; padding: 0; }
 

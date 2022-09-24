@@ -7,9 +7,21 @@
 			{% assign class = class | append: " highlight" %}
 		{% endif %}
 
+    {% if link.sublinks %}
+    <div class="dropdown">
+      <a class="dropbtn">{{ link.name }}</a>
+      <div class="dropdown-menu">
+	      {% for link in link.sublinks %}
+		      <a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+
 		{% if link.link == page.url %}
 			{% assign class = class | append: " active" %}
 		{% endif %}
 		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
+    {% endif %}
 	{% endfor %}
 </nav>
