@@ -1,22 +1,23 @@
 - links:
-  - name: 服务
+  - name: Service
     link: /service/
-  - name: 客户案例
-    link: /client/
-  - name: 关于我们
+  - name: About Us
     link: /about/
-  - name: 联系我们
+  - name: Contact
     link: /contact/
 
 - links:
-  - name: 微博
+  - name: _100dos
+    social_icon: Weixin
+    new_window: false
+  - name: Weibo
     link: https://weibo.com/100dos/
     new_window: true
     social_icon: Weibo
-  - name: Github
-    link: https://github.com/100dos/
+  - name: Telegram
+    link: https://t.me/jixiaod
     new_window: true
-    social_icon: Github
+    social_icon: Telegram
 
   - name: RSS
     link: /feed.xml

@@ -1,5 +1,31 @@
 ---
-title: 选择我们更专业、更懂你
-description: 因为我们致力于互联网及信息服务行业创造价值，真正实现企业互联网信息智能化，提高企业在网络科技时代的市场竞争力。
+title: 我们的产品
+description: 为开发者、初创公司和有需求的客户提供软件开发和专业托管服务
 ---
 
+<section class="diagonal patterned">
+	<div class="container">
+	    <p class="editor-link" style="text-align: center;"><a href="cloudcannon:collections/_products/" class="btn"><strong>&#9998;</strong> Manage Products</a></p>
+		<ul class="image-grid">
+			{% for product in site.products %}
+				<li>
+						<div class="details">
+              <div class="card-header bg-white border-0 pb-0">
+                <span class="d-flex"> {{ product.name }} </span>
+              </div>
+              <div class="card-body">
+                <p class="mb-3">{{ product.description }}</p>               
+                <p class="mb-3">{{ product.functions }}</p>
+              </div>
+
+              <div class="mb-3 prod-a">
+                <a href="{{ site.baseurl }}{{ product.external_url}}">了解更多</a>
+                </div>
+						</div>
+				</li>
+			{% endfor %}
+			<li class="filler"></li>
+			<li class="filler"></li>
+		</ul>
+	</div>
+</section>
