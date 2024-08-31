@@ -742,7 +742,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 
 nav {
   text-transform: uppercase;
-  font-size: 0.8em;
+  font-size: 1em;
   width: 100%;
   /* 导航下拉菜单*/
 }
