@@ -10,7 +10,7 @@
   link: /about/
   new_window: false
   highlight: false
-- name: 联系我们
-  link: /contact/
+- name: 博客
+  link: /blog/
   new_window: false
   highlight: false

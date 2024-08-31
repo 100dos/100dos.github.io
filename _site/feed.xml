@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://100dos.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://100dos.github.io/" rel="alternate" type="text/html" /><updated>2024-08-31T08:49:13+00:00</updated><id>https://100dos.github.io/feed.xml</id><title type="html">百作坊工作室</title><subtitle>百作坊工作室</subtitle><author><name>Ji Gang</name><email>ji.xiaod@gmail.com</email></author><entry><title type="html">为什么您需要 Bitwarden 作为开源密码管理器！</title><link href="https://100dos.github.io/%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1/open%20source/2024/08/21/bitwarden-passwort-manager/" rel="alternate" type="text/html" title="为什么您需要 Bitwarden 作为开源密码管理器！" /><published>2024-08-21T00:00:00+00:00</published><updated>2024-08-21T00:00:00+00:00</updated><id>https://100dos.github.io/%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1/open%20source/2024/08/21/bitwarden-passwort-manager</id><content type="html" xml:base="https://100dos.github.io/%E6%89%98%E7%AE%A1%E6%9C%8D%E5%8A%A1/open%20source/2024/08/21/bitwarden-passwort-manager/">&lt;p&gt;&lt;img src=&quot;/images/post/bitwarden.png&quot; alt=&quot;Bitwarden Image&quot; title=&quot;Bitwarden!&quot; /&gt;
+我们都知道：公司的密码很快就会变得一团糟！我们需要使用一些效率工具解决这个问题。&lt;/p&gt;
+
+&lt;p&gt;我自己之前经常是保存在本地的一个txt文件里，离职时在交接给新的同时，并且我自己能够保证不再用这些账号登陆公司的系统。这对于公司就不太安全，或许员工离职忘了把这个文件交还给公司，或许试用聊天软件传输本身就很不安全。&lt;/p&gt;
+
+&lt;p&gt;这在很长一段时间内都很顺利，但当有有一位同事离开部门的那一天忘了交接。怎么办？更改所有密码？或者只是希望他或她在新工作中不再登录公司的账号？如何管理源源不断的密码？TXT文件？ Excel？便利贴放在键盘下面吗？&lt;/p&gt;
+
+&lt;h3 id=&quot;解决方案密码管理器&quot;&gt;解决方案：密码管理器&lt;/h3&gt;
+&lt;p&gt;回到公司方面有什么解决方案？如何保护自己免受 Excel 表中管理的大量重复使用和共享访问数据的影响？所谓的密码管理器可以提供帮助。对于您自己的使用，特别值得一看的是 KeePass 或 Buttercup 以及许多类似的开源工具，它们一方面为密码提供安全存储，另一方面通常也具有良好的浏览器集成，以便您可以使用直接在网站上输入密码即可。&lt;/p&gt;
+
+&lt;p&gt;对于公司来说，使用变得有点复杂——毕竟，密码不仅应该安全地存储，而且还应该能够以结构化的方式与同事共享！这里使用带有服务器组件的密码管理器，通过它可以与个人或团体共享和同步密码。如果同事离开公司，密码访问权限很快就会被撤销。&lt;/p&gt;
+
+&lt;h3 id=&quot;团队中的密码管理器&quot;&gt;团队中的密码管理器&lt;/h3&gt;
+&lt;p&gt;此类服务最著名的代表之一无疑是 LastPass。每个用户都有自己的保管库，可以在其中存储密码。然后可以根据可配置的策略共享单独的密码和文件夹。安全笔记、离线模式和密码生成器完善了该产品。然而，缺点很快就体现在价格上：每个用户每月的费用略低于 4 或 7 欧元，预算很快就会紧张，特别是对于较大的团队而言。&lt;/p&gt;
+
+&lt;p&gt;加拿大 1Password 比同类产品稍微便宜一些。每月只需不到 20 美元，即可让 10 人管理密码。然而，商业版的费用为每个用户每月 8 美元。&lt;/p&gt;
+
+&lt;h3 id=&quot;常见缺点&quot;&gt;常见缺点&lt;/h3&gt;
+&lt;p&gt;然而，所有商业密码管理器都有几个共同的主要缺点： 作为数千或数百万个密码的中央存储位置，它们是各种攻击者的完美目标。还有什么地方可以如此快速地获得如此多的访问数据呢？因此，LastPass 在 2022 年 9 月遭到入侵并且攻击者获得了所有钱包的访问权限也就不足为奇了。结果，多个加密钱包被清空，总共造成至少3500万欧元的损失。&lt;/p&gt;
+
+&lt;p&gt;此外，所有此类商业 SaaS 提供商的软件都是“闭源”的，即各自提供商的完整且秘密的财产。这是合乎逻辑的——毕竟，它服务于你自己的商业模式。然而，这意味着，与“开源”应用程序不同，广大受众永远无法检查源代码是否存在错误和差距 - 这实际上是必不可少的，特别是对于此类敏感应用程序！&lt;/p&gt;
+
+&lt;h3 id=&quot;解决方案bitwarden--开源密码管理器&quot;&gt;解决方案：Bitwarden – 开源密码管理器&lt;/h3&gt;
+&lt;p&gt;为了解决这些问题，值得放眼开源世界：除了商业提供商之外，开源领域也有一些优秀的应用程序，它们的表现丝毫不逊色于商业同行。目前已有超过100人在 Github 上为 Bitwarden 的源代码做出了贡献。志愿者已经和正在对源代码进行数百次检查以查找安全漏洞，这意味着这些漏洞很快就会被注意到并发布。 Bitwarden 客户端适用于所有常见浏览器以及 iOS 和 Android&lt;/p&gt;
+
+&lt;h3 id=&quot;如果您的公司没有技术人员&quot;&gt;如果您的公司没有技术人员&lt;/h3&gt;
+&lt;p&gt;我们非常乐意为您提供Bitwarden 托管服务，并收取不太高的离谱的费用。如有需要，&lt;a href=&quot;https://100dos.github.io/contact/&quot;&gt;请联系我们&lt;/a&gt;&lt;/p&gt;</content><author><name>Ji Gang</name><email>ji.xiaod@gmail.com</email></author><category term="托管服务" /><category term="Open Source" /><summary type="html">我们都知道：公司的密码很快就会变得一团糟！我们需要使用一些效率工具解决这个问题。</summary></entry></feed>
