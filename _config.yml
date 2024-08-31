@@ -1,7 +1,7 @@
 # ----
 # Site
 
-title: 百作坊工作室
+title: 百作坊工作室 | 100DOS
 url: "https://100dos.github.io"
 baseurl:
 google_analytics_key: UA-50630186-1
@@ -10,7 +10,7 @@ disqus_shortname:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: 百作坊工作室
+description: 百作坊工作室 | 100DOS | 为开发者、初创公司和有需求的客户提供软件开发和专业托管服务 | APP开发、微信小程序开发、公众号开发、网站开发
 author:
   name: Ji Gang
   email: ji.xiaod@gmail.com
