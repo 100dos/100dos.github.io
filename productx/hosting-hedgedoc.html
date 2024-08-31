@@ -1,0 +1,107 @@
+---
+title: HedgeDoc
+description: HedgeDoc 是快速、轻松地协作处理文档的完美工具。其基础是一个类似 IDE 的文本编辑器，允许使用 Markdown 进行格式化。可以根据需要共享文档，所有编辑者都可以立即看到内容的更改。
+pricing_table:
+  - name: 标准版
+    color: "#4182e4"
+    features:
+      - text: 300RMB / 月
+        highlight: true
+      - text: 适合10个左右用户
+        highlight: true
+      - text: CPU 2核 /内存 4G / 存储10G
+        highlight: false
+      - text: 技术支持
+        highlight: false
+
+  - name: 升级版
+    color: "#4182e4"
+    features:
+      - text: 600RMB / 月
+        highlight: true
+      - text: 适合25个左右用户
+        highlight: false
+      - text: CPU 2核 /内存 4G / 存储50G
+        highlight: false
+      - text: 技术支持
+        highlight: false
+      - text: 独立域名
+        highlight: false
+
+  - name: 专业版
+    color: "#4182e4"
+    features:
+      - text: 1200RMB / 月
+        highlight: true
+      - text: 适合50个左右用户
+        highlight: false
+      - text: CPU 4核 /内存 8G / 存储300G
+        highlight: false
+      - text: 优先技术支持
+        highlight: false
+      - text: 独立域名
+        highlight: false
+      - text: 托管邮件服务器
+        highlight: false
+
+---
+
+
+<div class="content">
+
+	<section>
+		<div class="container flex">
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/product/hedgedoc-screen.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+        <p>✔️  类似 IDE 的编辑器，用于编写 Markdown 格式的文本文件</p>
+        <p>✔️  在屏幕右侧实时渲染格式</p>
+        <p>✔️  能够协作编辑文本W</p>
+        <p>✔️  每个文档的单独访问控制</p>
+        <p>✔️  能够使用标签更快地查找文本</p>
+        <p>✔️  各种编程语言代码的语法突出显示</p>
+        <p>✔️  使用 MathJax 显示 LaTeX 中的数学公式</p>
+        <p>✔️  在 Markdown 中轻松编写 UML 图和其他图表类型</p>
+
+		</div>
+	</section>
+
+  <div class="plans">
+	{% for plan in page.pricing_table %}
+		<ul class="plan">
+			<li style="background: {{ plan.color }}">
+				<h3>{{ plan.name }}</h3>
+			</li>
+			{% for feature in plan.features %}
+				<li {% if feature.highlight %} class="highlighted"{% endif %}>{{ feature.text }}</li>
+			{% endfor %}
+
+			{% if plan.call_to_action %}
+				<li class="pricing-cta"><div class="button"><a style="background: {{ plan.color }}" href="{{ plan.call_to_action.link }}">{{ plan.call_to_action.text }} &rarr;</a></div></li>
+			{% endif %}
+		</ul>
+	{% endfor %}
+</div>
+
+	<section class="testimonial">
+		<div class="container flex">
+			<div class="testimonial-block">
+				<blockquote>
+					<p class="editable">专业、可靠 - 免费试用 7 天</p>
+				</blockquote>
+			</div>
+		</div>
+	</section>
+
+	<section class="bottom-cta">
+		<h2 class="editable">如有有合作意向，请您～</h2>
+		<div class="button alt"><a href="{{ site.baseurl }}/contact">联系我们</a></div>
+	</section>
+</div>
+
