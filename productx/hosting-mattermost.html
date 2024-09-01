@@ -1,0 +1,104 @@
+---
+title: Mattermost
+description:  Mattermost 是一个开源消息传递和协作平台，供团队安全、私密地进行通信。除了直接消息之外，还可以创建私人和公共渠道，并且可以将用户组织成多个团队。大量的插件和集成选择使 Mattermost 成为您自己的 IT 环境中的完美解决方案。
+pricing_table:
+  - name: 标准版
+    color: "#4182e4"
+    features:
+      - text: 500RMB / 月
+        highlight: true
+      - text: 适合10个左右用户
+        highlight: true
+      - text: 50GB 存储空间
+        highlight: false
+      - text: 技术支持
+        highlight: false
+
+  - name: 升级版
+    color: "#4182e4"
+    features:
+      - text: 1000RMB / 月
+        highlight: true
+      - text: 适合25个左右用户
+        highlight: false
+      - text: 100GB 存储空间
+        highlight: false
+      - text: 技术支持
+        highlight: false
+      - text: 独立域名
+        highlight: false
+
+  - name: 专业版
+    color: "#4182e4"
+    features:
+      - text: 1500/ 月
+        highlight: true
+      - text: 适合50个左右用户
+        highlight: false
+      - text: 300GB 存储空间
+        highlight: false
+      - text: 优先技术支持
+        highlight: false
+      - text: 独立域名
+        highlight: false
+      - text: 托管邮件服务器
+        highlight: false
+
+---
+
+
+<div class="content">
+
+	<section>
+		<div class="container flex">
+			<div class="image">
+				<img src="{{ site.baseurl }}/images/product/mattermost-screen.png" alt="Screenshot" class="screenshot editable" />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+        <p>✅ 组织、渠道、用户维护</p>
+        <p>✅ 能够通过共享渠道或直接消息进行交流</p> 
+        <p>✅ 使用 Markdown 格式化消息并上传任何可能的文件</p> 
+        <p>✅ 有关实例使用情况的大量统计数据</p>
+        <p>✅ 行动手册和看板可帮助您一起完成待办事项列表</p>
+        <p>✅ 可通过插件和网络钩子进行单独扩展</p>
+		</div>
+	</section>
+
+  <div class="plans">
+	{% for plan in page.pricing_table %}
+		<ul class="plan">
+			<li style="background: {{ plan.color }}">
+				<h3>{{ plan.name }}</h3>
+			</li>
+			{% for feature in plan.features %}
+				<li {% if feature.highlight %} class="highlighted"{% endif %}>{{ feature.text }}</li>
+			{% endfor %}
+
+			{% if plan.call_to_action %}
+				<li class="pricing-cta"><div class="button"><a style="background: {{ plan.color }}" href="{{ plan.call_to_action.link }}">{{ plan.call_to_action.text }} &rarr;</a></div></li>
+			{% endif %}
+		</ul>
+	{% endfor %}
+</div>
+
+	<section class="testimonial">
+		<div class="container flex">
+			<div class="testimonial-block">
+				<blockquote>
+					<p class="editable">专业、可靠 - 免费试用 7 天</p>
+				</blockquote>
+			</div>
+		</div>
+	</section>
+
+	<section class="bottom-cta">
+		<h2 class="editable">如有有合作意向，请您～</h2>
+		<div class="button alt"><a href="{{ site.baseurl }}/contact">联系我们</a></div>
+	</section>
+</div>
+
