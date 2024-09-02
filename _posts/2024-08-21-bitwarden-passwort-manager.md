@@ -2,8 +2,7 @@
 date: 2024-8-21
 title: 为什么您需要 Bitwarden 作为开源密码管理器！
 categories:
-  - 托管服务
-  - Open Source
+  - open-source
 author_staff_member: 老虎
 ---
 
