@@ -1,16 +1,16 @@
 - name: 服务
-  link: /service/
+  link: /service
   new_window: false
   highlight: false
 - name: 产品
-  link: /product/
+  link: /product
   new_window: false
   highlight: false
 - name: 关于我们
-  link: /about/
+  link: /about
   new_window: false
   highlight: false
 - name: 博客
-  link: /blog/
+  link: /blog
   new_window: false
   highlight: false

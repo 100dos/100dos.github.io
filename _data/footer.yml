@@ -1,17 +1,21 @@
 - links:
-  - name: Service
-    link: /service/
-  - name: About Us
-    link: /about/
-  - name: Contact
-    link: /contact/
+  - name: 服务
+    link: /service
+  - name: 产品
+    link: /product
+  - name: 关于我们
+    link: /about
+  - name: 博客
+    link: /contact
+  - name: 联系我们
+    link: /contact
 
 - links:
   - name: _100dos
     social_icon: Weixin
     new_window: false
   - name: Weibo
-    link: https://weibo.com/100dos/
+    link: https://weibo.com/jixiaod
     new_window: true
     social_icon: Weibo
   - name: Telegram
