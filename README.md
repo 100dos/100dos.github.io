@@ -1,2 +1,2 @@
-# 100DOS HomePage
+# 100DOS STUDIO HomePage
 
